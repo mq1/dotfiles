@@ -20,7 +20,7 @@ source $ZSH/oh-my-zsh.sh
 
 PATH="$HOME/.local/bin:$PATH"
 
-if [[ -n $NAME ]]; then export ACCENT=◇ ; fi
-PROMPT=$ACCENT$PROMPT
+[[ -n $NAME ]] && SPACESHIP_CHAR_SYMBOL="[toolbox] $SPACESHIP_CHAR_SYMBOL"
 
 alias config='/usr/bin/git --git-dir=/var/home/mq1/.cfg/ --work-tree=/var/home/mq1'
+
