@@ -1,0 +1,2 @@
+theme = Gruvbox Material Dark
+custom-shader = shaders/cursor_warp.glsl
