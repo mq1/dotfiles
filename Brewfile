@@ -7,7 +7,7 @@ brew "gh"
 brew "lazygit"
 brew "komac"
 brew "zstd"
-brew "mole"
+brew "mole" if OS.mac?
 brew "neovim"
 brew "ripgrep"
 brew "ast-grep"
@@ -27,5 +27,5 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
 # transparent compression
-brew "dr-emann/tap/applesauce"
+brew "dr-emann/tap/applesauce" if OS.mac?
 
