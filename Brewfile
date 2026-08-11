@@ -12,6 +12,7 @@ brew "trash-cli"
 brew "sk"
 brew "zellij"
 brew "btop"
+brew "starship"
 
 # transparent compression
 brew "dr-emann/tap/applesauce" if OS.mac?
