@@ -13,3 +13,4 @@ source $ZSH/oh-my-zsh.sh
 # My stuff
 source <(sk --shell zsh --shell-bindings)
 alias v="nvim"
+eval "$(starship init zsh)"
