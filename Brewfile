@@ -1,7 +1,7 @@
 tap "dr-emann/tap", "https://github.com/Dr-Emann/homebrew-tap", trusted: true
 
 # tools
-brew "fish"
+brew "zsh" if OS.linux?
 brew "bat"
 brew "chezmoi"
 brew "zstd"
