@@ -9,7 +9,7 @@ alias tzst="tar -c -v --zstd --options zstd:compression-level=19,zstd:threads=0 
 
 HOMEBREW_PREFIX="$(brew --prefix)"
 source "${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "${HOMEBREW_PREFIX}/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 source <(sk --shell zsh --shell-bindings)
 eval "$(starship init zsh)"
