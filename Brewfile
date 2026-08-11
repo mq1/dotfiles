@@ -10,6 +10,8 @@ brew "neovim"
 brew "tealdeer"
 brew "trash-cli"
 brew "sk"
+brew "zellij"
+brew "btop"
 
 # transparent compression
 brew "dr-emann/tap/applesauce" if OS.mac?
