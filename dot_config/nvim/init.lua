@@ -13,6 +13,7 @@ vim.o.undofile = true -- Persistent undo history
 vim.o.signcolumn = "yes" -- Always show sign column
 vim.o.ignorecase = true -- Case-insensitive search
 vim.o.swapfile = false -- Disable swap files
+vim.o.clipboard = "unnamedplus" -- Sync with system clipboard
 vim.g.mapleader = " " -- Set leader key to space
 vim.g.maplocalleader = " " -- Set leader key to space
 vim.g.loaded_netrw = 1 -- Disable netrw
@@ -64,8 +65,6 @@ require("mini.files").setup()
 -- Install and initialize plugins (lazy) ---------------------------------------
 
 vim.schedule(function()
-	vim.o.clipboard = "unnamedplus" -- Sync with system clipboard
-
 	vim.pack.add({
 		"https://github.com/MunifTanjim/nui.nvim", -- noice dependency
 		"https://github.com/folke/noice.nvim", -- pretty ui
