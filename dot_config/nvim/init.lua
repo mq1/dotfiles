@@ -13,6 +13,7 @@ vim.o.spelllang = "en,it" -- Spell check (English and Italian)
 vim.o.undofile = true -- Persistent undo history
 vim.o.signcolumn = "yes" -- Always show sign column
 vim.o.ignorecase = true -- Case-insensitive search
+vim.o.completeopt = "menuone,noselect,fuzzy" -- fuzzy matching for completion
 vim.o.swapfile = false -- Disable swap files
 vim.g.mapleader = " " -- Set leader key to space
 vim.g.maplocalleader = " " -- Set leader key to space
