@@ -69,6 +69,7 @@ require("mini.files").setup()
 vim.schedule(function()
 	vim.pack.add({
 		"https://github.com/neovim/nvim-lspconfig", -- lsp configs
+		"https://github.com/lewis6991/gitsigns.nvim", -- git integration
 		"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack ui
 		"https://github.com/stevearc/conform.nvim", -- code formatting
 		"https://github.com/mrcjkb/rustaceanvim", -- rust integration
@@ -87,8 +88,6 @@ vim.schedule(function()
 	vim.diagnostic.config({ virtual_text = true }) -- Show diagnostics inline
 
 	require("mini.notify").setup()
-	require("mini.diff").setup()
-	require("mini.git").setup()
 	require("mini.pairs").setup()
 	require("mini.indentscope").setup()
 	require("crates").setup()
@@ -118,7 +117,7 @@ vim.schedule(function()
 	map.setup({
 		integrations = {
 			map.gen_integration.builtin_search(),
-			map.gen_integration.diff(),
+			map.gen_integration.gitsigns(),
 			map.gen_integration.diagnostic(),
 		},
 	})
