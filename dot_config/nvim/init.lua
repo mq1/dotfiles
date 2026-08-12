@@ -22,47 +22,27 @@ vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 
 -- Key bindings ----------------------------------------------------------------
 
-vim.keymap.set("n", "<Esc>", function()
-	vim.cmd("nohlsearch")
-end, { desc = "Clear highlights on search", silent = true })
+vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights on search", silent = true })
+vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Pick files", silent = true })
+vim.keymap.set("n", "<Leader>g", "<Cmd>FzfLua live_grep<CR>", { desc = "Pick matches", silent = true })
+vim.keymap.set("n", "<Leader><Leader>", "<Cmd>FzfLua buffers", { desc = "Pick buffers", silent = true })
+vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Open parent directory", silent = true })
 
-vim.keymap.set("n", "<Leader>f", function()
-	FzfLua.files()
-end, { desc = "Pick files", silent = true })
-
-vim.keymap.set("n", "<Leader>g", function()
-	FzfLua.live_grep()
-end, { desc = "Pick matches", silent = true })
-
-vim.keymap.set("n", "<Leader><Leader>", function()
-	FzfLua.buffers()
-end, { desc = "Pick buffers", silent = true })
-
-vim.keymap.set("n", "<Leader>e", function()
-	if MiniFiles.close() == nil then
-		MiniFiles.open()
-	end
-end, { desc = "Explore", silent = true })
-
-vim.keymap.set("i", "<Tab>", function()
-	if require("neocodeium").visible() then
-		require("neocodeium").accept()
-	else
-		return "<Tab>"
-	end
-end, { desc = "Accept completion or indent", expr = true, silent = true })
+vim.keymap.set("i", "ƒ", function() -- <Opt>-F
+	require("neocodeium").accept()
+end, { desc = "Neocodeium accept", silent = true })
 
 -- Install and intialize plugins (instant) -------------------------------------
 
 vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
+	"https://github.com/barrettruth/canola.nvim", -- file explorer
 }, { confirm = false })
 
 vim.cmd.colorscheme("gruvbox-material")
-
 require("mini.icons").setup()
-require("mini.files").setup()
+require("oil").setup()
 
 -- Install and initialize plugins (lazy) ---------------------------------------
 
