@@ -115,9 +115,7 @@ vim.schedule(function()
 	vim.api.nvim_create_autocmd({ "RecordingEnter", "RecordingLeave" }, { command = "redrawstatus" })
 
 	require("typst-preview").setup({
-		dependencies_bin = {
-			tinymist = "tinymist",
-		},
+		dependencies_bin = { tinymist = "tinymist" },
 	})
 
 	require("conform").setup({
