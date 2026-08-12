@@ -95,7 +95,7 @@ vim.schedule(function()
 	require("mini.completion").setup()
 	require("crates").setup()
 	require("grug-far").setup()
-	require("fzf-lua").setup({ "skim" })
+	require("fzf-lua").setup()
 
 	require("mini.clue").setup({
 		triggers = { { mode = { "n", "x" }, keys = "<Leader>" } },
