@@ -1,22 +1,26 @@
-#!/usr/bin/env zsh
+# set up antidote plugin manager
+if [[ ! -d "$HOME/.antidote" ]]; then
+    git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.antidote"
+fi
+source "$HOME/.antidote/antidote.zsh"
+antidote load
 
 # set up homebrew
 if [[ "$OSTYPE" == linux* ]]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 fi
-HOMEBREW_PREFIX="$(brew --prefix)"
+
+# history
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
 
 # completions
-FPATH="$HOMEBREW_PREFIX/share/zsh-completions:$FPATH"
-autoload -Uz compinit && compinit
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':fzf-tab:*' fzf-command sk
-source "$HOMEBREW_PREFIX/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh"
 source <(sk --shell zsh --shell-bindings)
-
-# zsh plugins
-source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # aliases
 alias ls="ls --color=auto"
