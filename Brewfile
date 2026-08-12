@@ -1,7 +1,6 @@
 tap "dr-emann/tap", "https://github.com/Dr-Emann/homebrew-tap", trusted: true
 
 # tools
-brew "zsh" if OS.linux?
 brew "bat"
 brew "chezmoi"
 brew "zstd"
@@ -12,7 +11,12 @@ brew "trash-cli"
 brew "sk"
 brew "zellij"
 brew "btop"
+
+# shell
+brew "zsh" if OS.linux?
 brew "starship"
+brew "zsh-syntax-highlighting"
+brew "zsh-autosuggestions"
 
 # transparent compression
 brew "dr-emann/tap/applesauce" if OS.mac?
