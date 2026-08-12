@@ -69,6 +69,9 @@ vim.schedule(function()
 
 	vim.pack.add({
 		"https://github.com/neovim/nvim-lspconfig", -- lsp configs
+		"https://github.com/MunifTanjim/nui.nvim", -- noice dependency
+		"https://github.com/rcarriga/nvim-notify", -- noice dependency
+		"https://github.com/folke/noice.nvim", -- pretty ui
 		"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack ui
 		"https://github.com/stevearc/conform.nvim", -- code formatting
 		"https://github.com/mrcjkb/rustaceanvim", -- rust integration
@@ -86,7 +89,7 @@ vim.schedule(function()
 	vim.lsp.inlay_hint.enable()
 	vim.diagnostic.config({ virtual_text = true }) -- Show diagnostics inline
 
-	require("mini.notify").setup()
+	require("noice").setup()
 	require("mini.diff").setup()
 	require("mini.git").setup()
 	require("mini.pairs").setup()
