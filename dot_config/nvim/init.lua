@@ -6,7 +6,6 @@ vim.o.expandtab = true -- Use spaces instead of tabs
 vim.o.tabstop = 4 -- 1 tab = 4 spaces
 vim.o.shiftwidth = 4 -- Indentation width
 vim.o.cursorline = true -- Highlight current line
-vim.o.cmdheight = 0 -- Hide command line when idle
 vim.o.showbreak = " ↪ " -- Wrapped line indicator
 vim.o.spell = true -- Enable spell check
 vim.o.spelllang = "en,it" -- Spell check (English and Italian)
@@ -68,10 +67,9 @@ vim.schedule(function()
 	vim.o.clipboard = "unnamedplus" -- Sync with system clipboard
 
 	vim.pack.add({
-		"https://github.com/neovim/nvim-lspconfig", -- lsp configs
 		"https://github.com/MunifTanjim/nui.nvim", -- noice dependency
-		"https://github.com/rcarriga/nvim-notify", -- noice dependency
 		"https://github.com/folke/noice.nvim", -- pretty ui
+		"https://github.com/neovim/nvim-lspconfig", -- lsp configs
 		"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack ui
 		"https://github.com/stevearc/conform.nvim", -- code formatting
 		"https://github.com/mrcjkb/rustaceanvim", -- rust integration
