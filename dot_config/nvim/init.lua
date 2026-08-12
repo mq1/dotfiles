@@ -70,6 +70,7 @@ vim.schedule(function()
 	vim.pack.add({
 		"https://github.com/neovim/nvim-lspconfig", -- lsp configs
 		"https://github.com/lewis6991/gitsigns.nvim", -- git integration
+		"https://github.com/lewis6991/satellite.nvim", -- scrollbar
 		"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack ui
 		"https://github.com/stevearc/conform.nvim", -- code formatting
 		"https://github.com/mrcjkb/rustaceanvim", -- rust integration
@@ -80,6 +81,7 @@ vim.schedule(function()
 		"https://github.com/monkoose/neocodeium", -- ai completion
 		"https://github.com/saghen/blink.lib", -- completion
 		"https://github.com/saghen/blink.cmp", -- completion
+		"https://github.com/folke/which-key.nvim", -- keymap hints
 	}, { confirm = false })
 
 	-- Set up lsp
@@ -94,9 +96,9 @@ vim.schedule(function()
 	require("grug-far").setup()
 	require("fzf-lua").setup()
 
-	require("mini.clue").setup({
-		triggers = { { mode = { "n", "x" }, keys = "<Leader>" } },
-		window = { delay = 0 },
+	require("which-key").setup({
+		preset = "helix",
+		icons = { mappings = false },
 	})
 
 	require("mini.statusline").setup()
@@ -112,16 +114,6 @@ vim.schedule(function()
 		return mode, hl
 	end
 	vim.api.nvim_create_autocmd({ "RecordingEnter", "RecordingLeave" }, { command = "redrawstatus" })
-
-	local map = require("mini.map")
-	map.setup({
-		integrations = {
-			map.gen_integration.builtin_search(),
-			map.gen_integration.gitsigns(),
-			map.gen_integration.diagnostic(),
-		},
-	})
-	map.open()
 
 	require("typst-preview").setup({
 		dependencies_bin = {
