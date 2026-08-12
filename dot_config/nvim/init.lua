@@ -13,7 +13,6 @@ vim.o.spelllang = "en,it" -- Spell check (English and Italian)
 vim.o.undofile = true -- Persistent undo history
 vim.o.signcolumn = "yes" -- Always show sign column
 vim.o.ignorecase = true -- Case-insensitive search
-vim.o.completeopt = "menuone,noselect,fuzzy" -- fuzzy matching for completion
 vim.o.swapfile = false -- Disable swap files
 vim.g.mapleader = " " -- Set leader key to space
 vim.g.maplocalleader = " " -- Set leader key to space
@@ -78,6 +77,8 @@ vim.schedule(function()
 		"https://github.com/MagicDuck/grug-far.nvim", -- find and replace
 		"https://github.com/ibhagwan/fzf-lua", -- fuzzy finder
 		"https://github.com/monkoose/neocodeium", -- ai completion
+		"https://github.com/saghen/blink.lib", -- completion
+		"https://github.com/saghen/blink.cmp", -- completion
 	}, { confirm = false })
 
 	-- Set up lsp
@@ -85,15 +86,12 @@ vim.schedule(function()
 	vim.lsp.inlay_hint.enable()
 	vim.diagnostic.config({ virtual_text = true }) -- Show diagnostics inline
 
-	MiniIcons.tweak_lsp_kind() -- for mini.completion
-
 	require("mini.notify").setup()
 	require("mini.diff").setup()
 	require("mini.git").setup()
 	require("mini.pairs").setup()
 	require("mini.indentscope").setup()
 	require("mini.cmdline").setup()
-	require("mini.completion").setup()
 	require("crates").setup()
 	require("grug-far").setup()
 	require("fzf-lua").setup()
@@ -145,4 +143,8 @@ vim.schedule(function()
 	})
 
 	require("neocodeium").setup()
+
+	local cmp = require("blink.cmp")
+	cmp.build():pwait()
+	cmp.setup()
 end)
