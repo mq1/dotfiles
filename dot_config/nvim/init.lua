@@ -6,6 +6,7 @@ vim.o.expandtab = true -- Use spaces instead of tabs
 vim.o.tabstop = 4 -- 1 tab = 4 spaces
 vim.o.shiftwidth = 4 -- Indentation width
 vim.o.cursorline = true -- Highlight current line
+vim.o.cmdheight = 0 -- Hide command line when idle
 vim.o.showbreak = " ↪ " -- Wrapped line indicator
 vim.o.spell = true -- Enable spell check
 vim.o.spelllang = "en,it" -- Spell check (English and Italian)
@@ -59,6 +60,7 @@ vim.pack.add({
 }, { confirm = false })
 
 vim.cmd.colorscheme("gruvbox-material")
+
 require("mini.icons").setup()
 require("mini.files").setup()
 
@@ -66,8 +68,6 @@ require("mini.files").setup()
 
 vim.schedule(function()
 	vim.pack.add({
-		"https://github.com/MunifTanjim/nui.nvim", -- noice dependency
-		"https://github.com/folke/noice.nvim", -- pretty ui
 		"https://github.com/neovim/nvim-lspconfig", -- lsp configs
 		"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack ui
 		"https://github.com/stevearc/conform.nvim", -- code formatting
@@ -86,7 +86,7 @@ vim.schedule(function()
 	vim.lsp.inlay_hint.enable()
 	vim.diagnostic.config({ virtual_text = true }) -- Show diagnostics inline
 
-	require("noice").setup()
+	require("mini.notify").setup()
 	require("mini.diff").setup()
 	require("mini.git").setup()
 	require("mini.pairs").setup()
