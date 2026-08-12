@@ -8,7 +8,7 @@ brew "mole" if OS.mac?
 brew "neovim"
 brew "tealdeer"
 brew "trash-cli"
-brew "sk"
+brew "fzf"
 brew "zellij"
 brew "btop"
 brew "zsh" if OS.linux?
