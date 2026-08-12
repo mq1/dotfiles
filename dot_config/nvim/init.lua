@@ -25,7 +25,7 @@ vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights on search", silent = true })
 vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Pick files", silent = true })
 vim.keymap.set("n", "<Leader>g", "<Cmd>FzfLua live_grep<CR>", { desc = "Pick matches", silent = true })
-vim.keymap.set("n", "<Leader><Leader>", "<Cmd>FzfLua buffers", { desc = "Pick buffers", silent = true })
+vim.keymap.set("n", "<Leader><Leader>", "<Cmd>FzfLua buffers<CR>", { desc = "Pick buffers", silent = true })
 vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Open parent directory", silent = true })
 
 vim.keymap.set("i", "ƒ", function() -- <Opt>-F
