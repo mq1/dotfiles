@@ -18,6 +18,7 @@ brew "starship"
 brew "zsh-syntax-highlighting"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
+brew "fzf-tab"
 
 # transparent compression
 brew "dr-emann/tap/applesauce" if OS.mac?
