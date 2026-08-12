@@ -11,7 +11,6 @@ brew "trash-cli"
 brew "fzf"
 brew "zellij"
 brew "btop"
-brew "zsh" if OS.linux?
 brew "starship"
 
 # transparent compression
