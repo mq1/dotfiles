@@ -12,6 +12,8 @@ brew "fzf"
 brew "zellij"
 brew "btop"
 brew "starship"
+brew "fd"
+brew "ripgrep"
 
 # transparent compression
 brew "dr-emann/tap/applesauce" if OS.mac?
