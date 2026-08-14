@@ -43,8 +43,6 @@ vim.pack.add({
 	"https://github.com/nvim-mini/mini.nvim", -- misc
 	"https://github.com/barrettruth/canola.nvim", -- file explorer
 	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
-	"https://github.com/lewis6991/gitsigns.nvim", -- git integration
-	"https://github.com/lewis6991/satellite.nvim", -- scrollbar
 	"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack ui
 	"https://github.com/stevearc/conform.nvim", -- code formatting
 	"https://github.com/Saecki/crates.nvim", -- rust crates utilities
@@ -65,6 +63,8 @@ vim.lsp.inlay_hint.enable()
 vim.diagnostic.config({ virtual_text = true }) -- Show diagnostics inline
 
 require("mini.icons").setup()
+require("mini.diff").setup()
+require("mini.git").setup()
 require("mini.notify").setup()
 require("mini.pairs").setup()
 require("mini.indentscope").setup()
@@ -94,6 +94,16 @@ require("conform").setup({
 		timeout_ms = 500,
 	},
 })
+
+local map = require("mini.map")
+map.setup({
+	integrations = {
+		map.gen_integration.builtin_search(),
+		map.gen_integration.diff(),
+		map.gen_integration.diagnostic(),
+	},
+})
+map.open()
 
 local cmp = require("blink.cmp")
 cmp.build():pwait()
