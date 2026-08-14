@@ -46,7 +46,6 @@ vim.pack.add({
 	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
 	"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack ui
 	"https://github.com/stevearc/conform.nvim", -- code formatting
-	"https://github.com/mrcjkb/rustaceanvim", -- rust integration
 	"https://github.com/Saecki/crates.nvim", -- rust crates utilities
 	"https://github.com/chomosuke/typst-preview.nvim", -- typst preview
 	"https://github.com/MagicDuck/grug-far.nvim", -- find and replace
@@ -58,7 +57,7 @@ vim.pack.add({
 vim.cmd.colorscheme("gruvbox-material")
 
 -- Set up lsp
-vim.lsp.enable({ "tinymist", "lua_ls", "taplo" })
+vim.lsp.enable({ "rust_analyzer", "tinymist", "lua_ls", "taplo" })
 vim.lsp.inlay_hint.enable()
 vim.diagnostic.config({ virtual_text = true }) -- Show diagnostics inline
 
