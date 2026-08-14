@@ -15,7 +15,8 @@ vim.o.signcolumn = "yes" -- Always show sign column
 vim.o.ignorecase = true -- Case-insensitive search
 vim.o.swapfile = false -- Disable swap files
 vim.o.clipboard = "unnamedplus" -- Sync with system clipboard
-vim.o.completeopt = "menuone,noselect,fuzzy,nosort" -- completion
+vim.o.scrolloff = 4 -- Lines of context
+vim.o.sidescrolloff = 8 -- Columns of context
 vim.g.mapleader = " " -- Set leader key to space
 vim.g.maplocalleader = " " -- Set leader key to space
 vim.g.loaded_netrw = 1 -- Disable netrw
@@ -52,6 +53,8 @@ vim.pack.add({
 	"https://github.com/ibhagwan/fzf-lua", -- fuzzy finder
 	"https://github.com/monkoose/neocodeium", -- ai completion
 	"https://github.com/folke/which-key.nvim", -- keymap hints
+	"https://github.com/saghen/blink.lib", -- completion
+	"https://github.com/saghen/blink.cmp", -- completion
 }, { confirm = false })
 
 vim.cmd.colorscheme("gruvbox-material")
@@ -62,15 +65,12 @@ vim.lsp.inlay_hint.enable()
 vim.diagnostic.config({ virtual_text = true }) -- Show diagnostics inline
 
 require("mini.icons").setup()
-MiniIcons.tweak_lsp_kind() -- for mini.completion
-
 require("mini.diff").setup()
 require("mini.git").setup()
 require("mini.notify").setup()
 require("mini.pairs").setup()
 require("mini.indentscope").setup()
 require("mini.statusline").setup()
-require("mini.completion").setup()
 require("oil").setup()
 require("crates").setup()
 require("grug-far").setup()
@@ -106,3 +106,7 @@ map.setup({
 	},
 })
 map.open()
+
+local cmp = require("blink.cmp")
+cmp.build():pwait()
+cmp.setup()
