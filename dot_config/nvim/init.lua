@@ -29,9 +29,9 @@ vim.cmd("autocmd RecordingLeave * set cmdheight=0")
 -- Key bindings ----------------------------------------------------------------
 
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights on search", silent = true })
-vim.keymap.set("n", "<C-p>", "<Cmd>FzfLua files<CR>", { desc = "Pick files", silent = true })
-vim.keymap.set("n", "<C-g>", "<Cmd>FzfLua live_grep<CR>", { desc = "Pick matches", silent = true })
-vim.keymap.set("n", "<C-b>", "<Cmd>FzfLua buffers<CR>", { desc = "Pick buffers", silent = true })
+vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Pick files", silent = true })
+vim.keymap.set("n", "<Leader>g", "<Cmd>FzfLua live_grep<CR>", { desc = "Pick matches", silent = true })
+vim.keymap.set("n", "<Leader><Leader>", "<Cmd>FzfLua buffers<CR>", { desc = "Pick buffers", silent = true })
 vim.keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { desc = "Delete current buffer", silent = true })
 vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Open parent directory", silent = true })
 
