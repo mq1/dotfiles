@@ -54,8 +54,7 @@ vim.pack.add({
 	"https://github.com/ibhagwan/fzf-lua", -- fuzzy finder
 	"https://github.com/monkoose/neocodeium", -- ai completion
 	"https://github.com/folke/which-key.nvim", -- keymap hints
-	"https://github.com/saghen/blink.lib", -- completion
-	"https://github.com/saghen/blink.cmp", -- completion
+	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- completion
 }, { confirm = false })
 
 vim.cmd.colorscheme("gruvbox-material")
@@ -108,6 +107,4 @@ map.setup({
 })
 map.open()
 
-local cmp = require("blink.cmp")
-cmp.build():pwait()
-cmp.setup()
+require("blink.cmp").setup()
