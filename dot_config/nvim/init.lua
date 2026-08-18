@@ -30,11 +30,16 @@ vim.cmd("autocmd RecordingLeave * set cmdheight=0")
 -- Key bindings ----------------------------------------------------------------
 
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights on search", silent = true })
+vim.keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { desc = "Delete current buffer", silent = true })
 vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Pick files", silent = true })
 vim.keymap.set("n", "<Leader>g", "<Cmd>FzfLua live_grep<CR>", { desc = "Pick matches", silent = true })
 vim.keymap.set("n", "<Leader><Leader>", "<Cmd>FzfLua buffers<CR>", { desc = "Pick buffers", silent = true })
-vim.keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { desc = "Delete current buffer", silent = true })
-vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Open parent directory", silent = true })
+
+vim.keymap.set("n", "<Leader>e", function()
+	if MiniFiles.close() == nil then
+		MiniFiles.open()
+	end
+end, { desc = "Explore files", silent = true })
 
 vim.keymap.set("i", "ƒ", function() -- <Opt>-f
 	require("neocodeium").accept()
@@ -45,7 +50,6 @@ end, { desc = "Neocodeium accept", silent = true })
 vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
-	"https://github.com/barrettruth/canola.nvim", -- file explorer
 	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
 	"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack ui
 	"https://github.com/stevearc/conform.nvim", -- code formatting
@@ -73,12 +77,11 @@ MiniSnippets.start_lsp_server() -- for mini.completion
 require("mini.diff").setup()
 require("mini.git").setup()
 require("mini.notify").setup()
+require("mini.files").setup()
 require("mini.pairs").setup()
 require("mini.indentscope").setup()
 require("mini.statusline").setup()
 require("mini.completion").setup()
-
-require("oil").setup()
 require("crates").setup()
 require("grug-far").setup()
 require("fzf-lua").setup()
