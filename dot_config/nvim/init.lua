@@ -17,6 +17,7 @@ vim.o.swapfile = false -- Disable swap files
 vim.o.clipboard = "unnamedplus" -- Sync with system clipboard
 vim.o.scrolloff = 4 -- Lines of context
 vim.o.sidescrolloff = 8 -- Columns of context
+vim.o.completeopt = "menuone,noselect,fuzzy,nosort" -- completion
 vim.g.mapleader = " " -- Set leader key to space
 vim.g.maplocalleader = " " -- Set leader key to space
 vim.g.loaded_netrw = 1 -- Disable netrw
@@ -54,7 +55,6 @@ vim.pack.add({
 	"https://github.com/ibhagwan/fzf-lua", -- fuzzy finder
 	"https://github.com/monkoose/neocodeium", -- ai completion
 	"https://github.com/folke/which-key.nvim", -- keymap hints
-	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- completion
 }, { confirm = false })
 
 vim.cmd.colorscheme("gruvbox-material")
@@ -65,12 +65,19 @@ vim.lsp.inlay_hint.enable()
 vim.diagnostic.config({ virtual_text = true }) -- Show diagnostics inline
 
 require("mini.icons").setup()
+MiniIcons.tweak_lsp_kind() -- for mini.completion
+
+require("mini.snippets").setup()
+MiniSnippets.start_lsp_server() -- for mini.completion
+
 require("mini.diff").setup()
 require("mini.git").setup()
 require("mini.notify").setup()
 require("mini.pairs").setup()
 require("mini.indentscope").setup()
 require("mini.statusline").setup()
+require("mini.completion").setup()
+
 require("oil").setup()
 require("crates").setup()
 require("grug-far").setup()
@@ -106,5 +113,3 @@ map.setup({
 	},
 })
 map.open()
-
-require("blink.cmp").setup()
