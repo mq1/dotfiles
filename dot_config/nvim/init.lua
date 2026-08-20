@@ -71,9 +71,6 @@ vim.diagnostic.config({ virtual_text = true }) -- Show diagnostics inline
 require("mini.icons").setup()
 MiniIcons.tweak_lsp_kind() -- for mini.completion
 
-require("mini.snippets").setup()
-MiniSnippets.start_lsp_server() -- for mini.completion
-
 require("mini.diff").setup()
 require("mini.git").setup()
 require("mini.notify").setup()
