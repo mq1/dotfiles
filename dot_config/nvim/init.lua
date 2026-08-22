@@ -59,6 +59,7 @@ vim.pack.add({
 	"https://github.com/ibhagwan/fzf-lua", -- fuzzy finder
 	"https://github.com/monkoose/neocodeium", -- ai completion
 	"https://github.com/folke/which-key.nvim", -- keymap hints
+	"https://github.com/rachartier/tiny-inline-diagnostic.nvim",
 }, { confirm = false })
 
 vim.cmd.colorscheme("gruvbox-material")
@@ -66,12 +67,11 @@ vim.cmd.colorscheme("gruvbox-material")
 -- Set up lsp
 vim.lsp.enable({ "rust_analyzer", "tinymist", "lua_ls", "taplo" })
 vim.lsp.inlay_hint.enable()
-vim.diagnostic.config({ virtual_text = true }) -- Show diagnostics inline
 
 require("mini.icons").setup()
 MiniIcons.tweak_lsp_kind() -- for mini.completion
 
-require("mini.diff").setup()
+require("mini.diff").setup({ view = { style = "sign" } })
 require("mini.git").setup()
 require("mini.notify").setup()
 require("mini.files").setup()
@@ -83,6 +83,7 @@ require("crates").setup()
 require("grug-far").setup()
 require("fzf-lua").setup()
 require("neocodeium").setup()
+require("tiny-inline-diagnostic").setup({ preset = "powerline" })
 
 require("which-key").setup({
 	preset = "helix",
