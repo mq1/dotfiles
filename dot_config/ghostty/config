@@ -1,2 +1,4 @@
 theme = Gruvbox Material Dark
+font-family = IoskeleyMonoTerm Nerd Font Mono
+macos-titlebar-style = tabs
 custom-shader = shaders/cursor_warp.glsl
