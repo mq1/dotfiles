@@ -37,7 +37,7 @@ vim.keymap.set("n", "<Leader><Leader>", "<Cmd>FzfLua buffers<CR>", { desc = "Pic
 
 vim.keymap.set("n", "<Leader>e", function()
 	if MiniFiles.close() == nil then
-		MiniFiles.open(vim.api.nvim_buf_get_name(0))
+		MiniFiles.open()
 	end
 end, { desc = "Explore files", silent = true })
 
