@@ -1,5 +1,5 @@
 theme = Gruvbox Material Dark
-font-family = IoskeleyMonoTerm Nerd Font Mono
+font-family = Ioskeley Mono Term
 window-padding-balance = true
 macos-non-native-fullscreen = visible-menu
 fullscreen = non-native-visible-menu
