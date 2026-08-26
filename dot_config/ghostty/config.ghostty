@@ -1,6 +1,6 @@
 theme = Gruvbox Material Dark
-font-family = Lilex
-adjust-cell-height = 2
+font-family = Ioskeley Mono Term
+adjust-cell-height = 3
 font-style = Medium
 window-padding-balance = true
 macos-non-native-fullscreen = visible-menu
