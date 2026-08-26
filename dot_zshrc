@@ -5,6 +5,9 @@ fi
 source "$HOME/.antidote/antidote.zsh"
 antidote load
 
+# case insensitive tab completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
 # set up homebrew
 if [[ "$OSTYPE" == linux* ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
