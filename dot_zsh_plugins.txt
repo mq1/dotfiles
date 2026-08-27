@@ -1,6 +1,5 @@
 # prompt
-romkatv/powerlevel10k
-romkatv/powerlevel10k path:config/p10k-lean.zsh
+spaceship-prompt/spaceship-prompt
 
 # completions
 mattmc3/ez-compinit
@@ -8,7 +7,7 @@ zsh-users/zsh-completions kind:fpath path:src
 Aloxaf/fzf-tab kind:defer
 
 # fish-like
-zsh-users/zsh-autosuggestions kind:defer
+zsh-users/zsh-autosuggestions
 zdharma-continuum/fast-syntax-highlighting kind:defer
-zsh-users/zsh-history-substring-search kind:defer
+zsh-users/zsh-history-substring-search
 
