@@ -11,7 +11,6 @@ brew "trash-cli"
 brew "fzf"
 brew "zellij"
 brew "btop"
-brew "starship"
 brew "fd"
 brew "ripgrep"
 
