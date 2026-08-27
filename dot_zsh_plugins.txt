@@ -1,5 +1,5 @@
-# starship fast load
-mattmc3/starship-ftl post:"ftl-prompt starship"
+# prompt
+spaceship-prompt/spaceship-prompt
 
 # completions
 mattmc3/ez-compinit
