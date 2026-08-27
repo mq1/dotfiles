@@ -62,6 +62,8 @@ vim.pack.add({
 	"https://github.com/rachartier/tiny-inline-diagnostic.nvim",
 }, { confirm = false })
 
+-- Set up colorscheme
+vim.g.gruvbox_material_background = "soft"
 vim.cmd.colorscheme("gruvbox-material")
 
 -- Set up lsp
