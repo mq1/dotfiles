@@ -123,13 +123,3 @@ require("conform").setup({
 		timeout_ms = 500,
 	},
 })
-
-local map = require("mini.map")
-map.setup({
-	integrations = {
-		map.gen_integration.builtin_search(),
-		map.gen_integration.diff(),
-		map.gen_integration.diagnostic(),
-	},
-})
-map.open()
