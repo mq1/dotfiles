@@ -35,13 +35,12 @@ vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Pick files",
 vim.keymap.set("n", "<Leader>g", "<Cmd>FzfLua live_grep<CR>", { desc = "Pick matches", silent = true })
 vim.keymap.set("n", "<Leader><Leader>", "<Cmd>FzfLua buffers<CR>", { desc = "Pick buffers", silent = true })
 
-vim.keymap.set("n", "<Leader>e", function()
-	if MiniFiles.close() == nil then
-		MiniFiles.open()
-	end
-end, { desc = "Explore files", silent = true })
+vim.keymap.set("n", "-", function()
+	require("oil").open_float(nil, { preview = {} })
+end, { desc = "Open parent directory", silent = true })
 
-vim.keymap.set("i", "ƒ", function() -- <Opt>-f
+-- <Opt>-f on macos italian keyboard layout
+vim.keymap.set("i", "ƒ", function()
 	require("neocodeium").accept()
 end, { desc = "Neocodeium accept", silent = true })
 
@@ -50,6 +49,7 @@ end, { desc = "Neocodeium accept", silent = true })
 vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
+	"https://github.com/barrettruth/canola.nvim", -- file explorer (oil fork)
 	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
 	"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack ui
 	"https://github.com/stevearc/conform.nvim", -- code formatting
@@ -76,16 +76,33 @@ MiniIcons.tweak_lsp_kind() -- for mini.completion
 require("mini.diff").setup({ view = { style = "sign" } })
 require("mini.git").setup()
 require("mini.notify").setup()
-require("mini.files").setup()
 require("mini.pairs").setup()
 require("mini.indentscope").setup()
 require("mini.statusline").setup()
 require("mini.completion").setup()
 require("crates").setup()
 require("grug-far").setup()
-require("fzf-lua").setup()
 require("neocodeium").setup()
 require("tiny-inline-diagnostic").setup({ preset = "powerline" })
+
+require("oil").setup({
+	float = {
+		max_width = 0.8,
+		max_height = 0.8,
+		border = "single",
+		preview_split = "right",
+	},
+})
+
+require("fzf-lua").setup({
+	winopts = {
+		height = 0.8,
+		width = 0.8,
+		row = 0.5,
+		col = 0.5,
+		border = "single",
+	},
+})
 
 require("which-key").setup({
 	preset = "helix",
