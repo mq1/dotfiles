@@ -31,9 +31,9 @@ vim.cmd("autocmd RecordingLeave * set cmdheight=0")
 
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights on search", silent = true })
 vim.keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { desc = "Delete current buffer", silent = true })
-vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Pick files", silent = true })
-vim.keymap.set("n", "<Leader>g", "<Cmd>FzfLua live_grep<CR>", { desc = "Pick matches", silent = true })
-vim.keymap.set("n", "<Leader><Leader>", "<Cmd>FzfLua buffers<CR>", { desc = "Pick buffers", silent = true })
+vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Find file", silent = true })
+vim.keymap.set("n", "<Leader>t", "<Cmd>FzfLua grep_project<CR>", { desc = "Find text", silent = true })
+vim.keymap.set("n", "<Leader><Leader>", "<Cmd>FzfLua buffers<CR>", { desc = "Find buffer", silent = true })
 
 vim.keymap.set("n", "<Leader>e", function()
 	if MiniFiles.close() == nil then
@@ -88,8 +88,8 @@ require("mini.completion").setup()
 require("mini.files").setup()
 require("crates").setup()
 require("grug-far").setup()
-require("fzf-lua").setup()
 require("neocodeium").setup()
+require("fzf-lua").setup({ { "fzf-native", "hide" } })
 require("tiny-inline-diagnostic").setup({ preset = "powerline" })
 
 require("which-key").setup({
