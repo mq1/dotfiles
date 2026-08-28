@@ -35,12 +35,13 @@ vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Pick files",
 vim.keymap.set("n", "<Leader>g", "<Cmd>FzfLua live_grep<CR>", { desc = "Pick matches", silent = true })
 vim.keymap.set("n", "<Leader><Leader>", "<Cmd>FzfLua buffers<CR>", { desc = "Pick buffers", silent = true })
 
-vim.keymap.set("n", "-", function()
-	require("oil").open_float(nil, { preview = {} })
-end, { desc = "Open parent directory", silent = true })
+vim.keymap.set("n", "<Leader>e", function()
+	if MiniFiles.close() == nil then
+		MiniFiles.open(vim.api.nvim_buf_get_name(0))
+	end
+end, { desc = "Explore files", silent = true })
 
--- <Opt>-f on macos italian keyboard layout
-vim.keymap.set("i", "ƒ", function()
+vim.keymap.set("i", "ƒ", function() -- <Opt>-f
 	require("neocodeium").accept()
 end, { desc = "Neocodeium accept", silent = true })
 
@@ -49,7 +50,6 @@ end, { desc = "Neocodeium accept", silent = true })
 vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
-	"https://github.com/barrettruth/canola.nvim", -- file explorer (oil fork)
 	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
 	"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack ui
 	"https://github.com/stevearc/conform.nvim", -- code formatting
@@ -73,7 +73,12 @@ vim.lsp.inlay_hint.enable()
 require("mini.icons").setup()
 MiniIcons.tweak_lsp_kind() -- for mini.completion
 
-require("mini.diff").setup({ view = { style = "sign" } })
+require("mini.diff").setup({
+	view = {
+		style = "sign",
+	},
+})
+
 require("mini.git").setup()
 require("mini.notify").setup()
 require("mini.pairs").setup()
@@ -82,35 +87,28 @@ require("mini.statusline").setup()
 require("mini.completion").setup()
 require("crates").setup()
 require("grug-far").setup()
+require("fzf-lua").setup()
 require("neocodeium").setup()
 require("tiny-inline-diagnostic").setup({ preset = "powerline" })
 
-require("oil").setup({
-	float = {
-		max_width = 0.8,
-		max_height = 0.8,
-		border = "single",
-		preview_split = "right",
-	},
-})
-
-require("fzf-lua").setup({
-	winopts = {
-		height = 0.8,
-		width = 0.8,
-		row = 0.5,
-		col = 0.5,
-		border = "single",
+require("mini.files").setup({
+	windows = {
+		preview = true,
+		width_preview = 80,
 	},
 })
 
 require("which-key").setup({
 	preset = "helix",
-	icons = { mappings = false },
+	icons = {
+		mappings = false,
+	},
 })
 
 require("typst-preview").setup({
-	dependencies_bin = { tinymist = "tinymist" },
+	dependencies_bin = {
+		tinymist = "tinymist",
+	},
 })
 
 require("conform").setup({
