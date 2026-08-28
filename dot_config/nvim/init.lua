@@ -76,7 +76,6 @@ require("mini.statusline").setup()
 require("mini.completion").setup()
 require("mini.files").setup()
 require("grug-far").setup()
-require("conform").setup()
 require("neocodeium").setup()
 require("fzf-lua").setup({ { "fzf-native", "hide" } })
 require("tiny-inline-diagnostic").setup({ preset = "powerline" })
@@ -85,6 +84,13 @@ require("which-key").setup({
 	preset = "helix",
 	icons = {
 		mappings = false,
+	},
+})
+
+require("conform").setup({
+	format_on_save = {
+		timeout_ms = 500,
+		lsp_format = "fallback",
 	},
 })
 
