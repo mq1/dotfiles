@@ -33,7 +33,7 @@ vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights o
 vim.keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { desc = "Delete current buffer", silent = true })
 vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Find file", silent = true })
 vim.keymap.set("n", "<Leader>t", "<Cmd>FzfLua grep_project<CR>", { desc = "Find text", silent = true })
-vim.keymap.set("n", "<Leader>s", "<Cmd>FzfLua lsp_live_workspace_symbols<CR>", { desc = "Find symbols", silent = true })
+vim.keymap.set("n", "<Leader>s", "<Cmd>FzfLua lsp_live_workspace_symbols<CR>", { desc = "Find symbol", silent = true })
 vim.keymap.set("n", "<Leader><Leader>", "<Cmd>FzfLua buffers<CR>", { desc = "Find buffer", silent = true })
 
 vim.keymap.set("n", "<Leader>e", function()
