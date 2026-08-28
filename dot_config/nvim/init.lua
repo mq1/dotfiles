@@ -37,14 +37,6 @@ vim.keymap.set("n", "<Leader>t", "<Cmd>FzfLua grep_project<CR>", { desc = "Find 
 vim.keymap.set("n", "<Leader>s", "<Cmd>FzfLua lsp_live_workspace_symbols<CR>", { desc = "Find symbol", silent = true })
 vim.keymap.set("n", "<Leader><Leader>", "<Cmd>FzfLua buffers<CR>", { desc = "Find buffer", silent = true })
 
-vim.keymap.set("n", "<Leader>-", function()
-	Snacks.terminal.toggle()
-end, { desc = "Toggle terminal", silent = true })
-
-vim.keymap.set("n", "<Leader>g", function()
-	Snacks.lazygit()
-end, { desc = "Lazygit", silent = true })
-
 vim.keymap.set("n", "<Leader>e", function()
 	if MiniFiles.close() == nil then
 		MiniFiles.open(vim.api.nvim_buf_get_name(0))
@@ -60,7 +52,6 @@ end, { desc = "Neocodeium accept", silent = true })
 vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
-	"https://github.com/folke/snacks.nvim", -- misc
 	"https://github.com/lewis6991/gitsigns.nvim", -- git integration
 	"https://github.com/lewis6991/satellite.nvim", -- scrollbar
 	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
@@ -84,7 +75,6 @@ require("mini.indentscope").setup()
 require("mini.statusline").setup()
 require("mini.completion").setup()
 require("mini.files").setup()
-require("snacks").setup()
 require("grug-far").setup()
 require("neocodeium").setup()
 require("fzf-lua").setup({ { "fzf-native", "hide" } })
