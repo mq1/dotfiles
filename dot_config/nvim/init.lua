@@ -85,18 +85,12 @@ require("mini.pairs").setup()
 require("mini.indentscope").setup()
 require("mini.statusline").setup()
 require("mini.completion").setup()
+require("mini.files").setup()
 require("crates").setup()
 require("grug-far").setup()
 require("fzf-lua").setup()
 require("neocodeium").setup()
 require("tiny-inline-diagnostic").setup({ preset = "powerline" })
-
-require("mini.files").setup({
-	windows = {
-		preview = true,
-		width_preview = 80,
-	},
-})
 
 require("which-key").setup({
 	preset = "helix",
