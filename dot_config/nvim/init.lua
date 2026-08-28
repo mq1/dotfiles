@@ -22,6 +22,7 @@ vim.g.mapleader = " " -- Set leader key to space
 vim.g.maplocalleader = " " -- Set leader key to space
 vim.g.loaded_netrw = 1 -- Disable netrw
 vim.g.loaded_netrwPlugin = 1 -- Disable netrw
+vim.lsp.inlay_hint.enable() -- Enable inlay hints
 
 -- Show cmdline when recording
 vim.cmd("autocmd RecordingEnter * set cmdheight=1")
@@ -51,11 +52,11 @@ end, { desc = "Neocodeium accept", silent = true })
 vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
+	"https://github.com/lewis6991/gitsigns.nvim", -- git integration
+	"https://github.com/lewis6991/satellite.nvim", -- scrollbar
 	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
 	"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack ui
 	"https://github.com/stevearc/conform.nvim", -- code formatting
-	"https://github.com/Saecki/crates.nvim", -- rust crates utilities
-	"https://github.com/chomosuke/typst-preview.nvim", -- typst preview
 	"https://github.com/MagicDuck/grug-far.nvim", -- find and replace
 	"https://github.com/ibhagwan/fzf-lua", -- fuzzy finder
 	"https://github.com/monkoose/neocodeium", -- ai completion
@@ -63,32 +64,19 @@ vim.pack.add({
 	"https://github.com/rachartier/tiny-inline-diagnostic.nvim",
 }, { confirm = false })
 
--- Set up colorscheme
-vim.g.gruvbox_material_background = "soft"
 vim.cmd.colorscheme("gruvbox-material")
-
--- Set up lsp
-vim.lsp.enable({ "rust_analyzer", "tinymist", "lua_ls", "taplo" })
-vim.lsp.inlay_hint.enable()
 
 require("mini.icons").setup()
 MiniIcons.tweak_lsp_kind() -- for mini.completion
 
-require("mini.diff").setup({
-	view = {
-		style = "sign",
-	},
-})
-
-require("mini.git").setup()
 require("mini.notify").setup()
 require("mini.pairs").setup()
 require("mini.indentscope").setup()
 require("mini.statusline").setup()
 require("mini.completion").setup()
 require("mini.files").setup()
-require("crates").setup()
 require("grug-far").setup()
+require("conform").setup()
 require("neocodeium").setup()
 require("fzf-lua").setup({ { "fzf-native", "hide" } })
 require("tiny-inline-diagnostic").setup({ preset = "powerline" })
@@ -100,19 +88,5 @@ require("which-key").setup({
 	},
 })
 
-require("typst-preview").setup({
-	dependencies_bin = {
-		tinymist = "tinymist",
-	},
-})
-
-require("conform").setup({
-	formatters_by_ft = {
-		lua = { "stylua" },
-		rust = { "rustfmt" },
-	},
-	format_on_save = {
-		lsp_format = "fallback",
-		timeout_ms = 500,
-	},
-})
+-- additional stuff
+require("languages")
