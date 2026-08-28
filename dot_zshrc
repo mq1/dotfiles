@@ -9,11 +9,6 @@ antidote load
 # case insensitive tab completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-# set up homebrew
-if [[ "$OSTYPE" == linux* ]]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
 # history
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
