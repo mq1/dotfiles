@@ -1,0 +1,9 @@
+[tools]
+neovim = "latest"
+fzf = "latest"
+bat = "latest"
+ripgrep = "latest"
+fd = "latest"
+chezmoi = "latest"
+tealdeer = "latest"
+
