@@ -89,4 +89,6 @@ require("which-key").setup({
 })
 
 -- additional stuff
-require("languages")
+require("init-rust")
+require("init-lua")
+require("init-typst")
