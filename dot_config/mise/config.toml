@@ -6,4 +6,6 @@ ripgrep = "latest"
 fd = "latest"
 chezmoi = "latest"
 tealdeer = "latest"
+lazygit = "latest"
+topgrade = "latest"
 
