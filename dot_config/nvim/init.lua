@@ -50,9 +50,8 @@ end, { desc = "Neocodeium accept", silent = true })
 -- Install and initialize plugins ----------------------------------------------
 
 vim.pack.add({
-	"https://github.com/webhooked/kanso.nvim", -- color scheme
+	"https://github.com/sainnhe/gruvbox-material", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
-	"https://github.com/saghen/blink.indent", -- indent guides
 	"https://github.com/lewis6991/gitsigns.nvim", -- git integration
 	"https://github.com/lewis6991/satellite.nvim", -- scrollbar
 	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
@@ -66,24 +65,19 @@ vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- completion
 }, { confirm = false })
 
-vim.cmd.colorscheme("kanso-mist")
+vim.cmd.colorscheme("gruvbox-material")
 
 require("mini.icons").setup()
 require("mini.notify").setup()
 require("mini.pairs").setup()
 require("mini.statusline").setup()
 require("mini.files").setup()
+require("mini.indentscope").setup()
 require("grug-far").setup()
 require("neocodeium").setup()
 require("blink.cmp").setup()
 require("fzf-lua").setup({ { "fzf-native", "hide" } })
 require("tiny-inline-diagnostic").setup({ preset = "powerline" })
-
-require("blink.indent").setup({
-	scope = {
-		highlights = { "BlinkIndentScope" },
-	},
-})
 
 require("which-key").setup({
 	preset = "helix",
