@@ -47,11 +47,12 @@ vim.keymap.set("i", "ƒ", function() -- <Opt>-f
 	require("neocodeium").accept()
 end, { desc = "Neocodeium accept", silent = true })
 
--- Install and intialize plugins -----------------------------------------------
+-- Install and initialize plugins ----------------------------------------------
 
 vim.pack.add({
-	"https://github.com/sainnhe/gruvbox-material", -- color scheme
+	"https://github.com/webhooked/kanso.nvim", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
+	"https://github.com/saghen/blink.indent", -- indent guides
 	"https://github.com/lewis6991/gitsigns.nvim", -- git integration
 	"https://github.com/lewis6991/satellite.nvim", -- scrollbar
 	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
@@ -61,24 +62,28 @@ vim.pack.add({
 	"https://github.com/ibhagwan/fzf-lua", -- fuzzy finder
 	"https://github.com/monkoose/neocodeium", -- ai completion
 	"https://github.com/folke/which-key.nvim", -- keymap hints
-	"https://github.com/rachartier/tiny-inline-diagnostic.nvim",
+	"https://github.com/rachartier/tiny-inline-diagnostic.nvim", -- lsp diagnostics
+	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- completion
 }, { confirm = false })
 
-vim.cmd.colorscheme("gruvbox-material")
+vim.cmd.colorscheme("kanso-mist")
 
 require("mini.icons").setup()
-MiniIcons.tweak_lsp_kind() -- for mini.completion
-
 require("mini.notify").setup()
 require("mini.pairs").setup()
-require("mini.indentscope").setup()
 require("mini.statusline").setup()
-require("mini.completion").setup()
 require("mini.files").setup()
 require("grug-far").setup()
 require("neocodeium").setup()
+require("blink.cmp").setup()
 require("fzf-lua").setup({ { "fzf-native", "hide" } })
 require("tiny-inline-diagnostic").setup({ preset = "powerline" })
+
+require("blink.indent").setup({
+	scope = {
+		highlights = { "BlinkIndentScope" },
+	},
+})
 
 require("which-key").setup({
 	preset = "helix",
