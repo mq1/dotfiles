@@ -9,17 +9,6 @@ antidote load
 # case insensitive tab completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-# history
-HISTFILE="$HOME/.zsh_history"
-HISTSIZE=10000
-SAVEHIST=10000
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_SPACE
-
-# history search
-source <(fzf --zsh)
-
 # aliases
 alias ls="ls --color=auto"
 alias vi="nvim"
