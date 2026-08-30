@@ -31,68 +31,8 @@ vim.cmd("autocmd RecordingLeave * set cmdheight=0")
 
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights on search", silent = true })
 vim.keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { desc = "Delete current buffer", silent = true })
-vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Find file", silent = true })
-vim.keymap.set("n", "<Leader>t", "<Cmd>FzfLua grep_project<CR>", { desc = "Find text", silent = true })
-vim.keymap.set("n", "<Leader>s", "<Cmd>FzfLua lsp_live_workspace_symbols<CR>", { desc = "Find symbol", silent = true })
-vim.keymap.set("n", "<Leader><Leader>", "<Cmd>FzfLua buffers<CR>", { desc = "Find buffer", silent = true })
-
-vim.keymap.set("n", "<Leader>e", function()
-	if MiniFiles.close() == nil then
-		MiniFiles.open(vim.api.nvim_buf_get_name(0))
-	end
-end, { desc = "Explore files", silent = true })
-
-vim.keymap.set("i", "ƒ", function() -- <Opt>-f
-	require("neocodeium").accept()
-end, { desc = "Neocodeium accept", silent = true })
 
 -- Install and initialize plugins ----------------------------------------------
 
-vim.pack.add({
-	"https://github.com/sainnhe/gruvbox-material", -- color scheme
-	"https://github.com/nvim-mini/mini.nvim", -- misc
-	"https://github.com/lewis6991/gitsigns.nvim", -- git integration
-	"https://github.com/lewis6991/satellite.nvim", -- scrollbar
-	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
-	"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack ui
-	"https://github.com/stevearc/conform.nvim", -- code formatting
-	"https://github.com/MagicDuck/grug-far.nvim", -- find and replace
-	"https://github.com/ibhagwan/fzf-lua", -- fuzzy finder
-	"https://github.com/monkoose/neocodeium", -- ai completion
-	"https://github.com/folke/which-key.nvim", -- keymap hints
-	"https://github.com/rachartier/tiny-inline-diagnostic.nvim", -- lsp diagnostics
-	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- completion
-}, { confirm = false })
-
-vim.cmd.colorscheme("gruvbox-material")
-
-require("mini.icons").setup()
-require("mini.notify").setup()
-require("mini.pairs").setup()
-require("mini.statusline").setup()
-require("mini.files").setup()
-require("mini.indentscope").setup()
-require("grug-far").setup()
-require("neocodeium").setup()
-require("blink.cmp").setup()
-require("fzf-lua").setup({ { "fzf-native", "hide" } })
-require("tiny-inline-diagnostic").setup({ preset = "powerline" })
-
-require("which-key").setup({
-	preset = "helix",
-	icons = {
-		mappings = false,
-	},
-})
-
-require("conform").setup({
-	format_on_save = {
-		timeout_ms = 500,
-		lsp_format = "fallback",
-	},
-})
-
--- additional stuff
-require("init-rust")
-require("init-lua")
-require("init-typst")
+vim.pack.add({ "https://github.com/zuqini/zpack.nvim" }, { confirm = false })
+require("zpack").setup({ defaults = { confirm = false } })
