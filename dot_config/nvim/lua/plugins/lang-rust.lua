@@ -1,4 +1,7 @@
 return {
 	{ "mrcjkb/rustaceanvim" },
-	{ "Saecki/crates.nvim", opts = {} },
+	{
+		"Saecki/crates.nvim",
+		opts = {},
+	},
 }

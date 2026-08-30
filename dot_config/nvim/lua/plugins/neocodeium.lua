@@ -1,5 +1,6 @@
 return {
 	"monkoose/neocodeium",
+	opts = {},
 	keys = {
 		{
 			"ƒ",
