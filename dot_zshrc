@@ -22,6 +22,6 @@ source <(fzf --zsh)
 
 # aliases
 alias ls="ls --color=auto"
-alias v="nvim"
+alias vi="nvim"
 alias tzst="tar -c -v --zstd --options zstd:compression-level=19,zstd:threads=0 -f"
 
