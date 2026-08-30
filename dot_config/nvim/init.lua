@@ -17,7 +17,6 @@ vim.o.swapfile = false -- Disable swap files
 vim.o.clipboard = "unnamedplus" -- Sync with system clipboard
 vim.o.scrolloff = 4 -- Lines of context
 vim.o.sidescrolloff = 8 -- Columns of context
-vim.o.completeopt = "menuone,noselect,fuzzy,nosort" -- completion
 vim.g.mapleader = " " -- Set leader key to space
 vim.g.maplocalleader = " " -- Set leader key to space
 vim.g.loaded_netrw = 1 -- Disable netrw
