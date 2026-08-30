@@ -1,14 +1,16 @@
 return {
 	"nvim-mini/mini.nvim",
 	priority = 100,
-	lazy = false, -- required to enable mini.files early
+	lazy = false, -- required to enable mini.starter and mini.files early
 	config = function()
+		require("mini.starter").setup()
 		require("mini.icons").setup()
 		require("mini.notify").setup()
 		require("mini.pairs").setup()
 		require("mini.statusline").setup()
 		require("mini.files").setup()
 		require("mini.indentscope").setup()
+		require("mini.cursorword").setup()
 	end,
 	keys = {
 		{
