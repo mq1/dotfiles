@@ -23,7 +23,8 @@ return {
 			"<Leader>e",
 			function()
 				if MiniFiles.close() == nil then
-					MiniFiles.open()
+					MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+					MiniFiles.reveal_cwd()
 				end
 			end,
 			desc = "Explore files",

@@ -3,7 +3,7 @@ return {
 	opts = { { "fzf-native", "hide" } },
 	keys = {
 		{
-			"<Leader><Leader>",
+			"<Leader>b",
 			function()
 				FzfLua.buffers()
 			end,
@@ -19,19 +19,11 @@ return {
 			silent = true,
 		},
 		{
-			"<Leader>t",
+			"<Leader>g",
 			function()
-				FzfLua.grep_project()
+				FzfLua.live_grep()
 			end,
 			desc = "Find text",
-			silent = true,
-		},
-		{
-			"<Leader>s",
-			function()
-				FzfLua.lsp_live_workspace_symbols()
-			end,
-			desc = "Find symbol",
 			silent = true,
 		},
 	},
