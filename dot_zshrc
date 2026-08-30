@@ -1,9 +1,6 @@
 # set up mise (package manager)
 eval "$(~/.local/bin/mise activate zsh)"
 
-# fzf integration
-source <(fzf --zsh)
-
 # set up antidote (zsh plugin manager)
 [[ -d "$HOME/.antidote" ]] || git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.antidote"
 source "$HOME/.antidote/antidote.zsh"
