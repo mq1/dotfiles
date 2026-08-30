@@ -3,7 +3,13 @@ return {
 	priority = 100,
 	lazy = false, -- required to enable mini.starter and mini.files early
 	config = function()
-		require("mini.starter").setup()
+		local starter = require("mini.starter")
+		starter.setup({
+			items = {
+				starter.sections.recent_files(nil, true),
+			},
+		})
+
 		require("mini.icons").setup()
 		require("mini.notify").setup()
 		require("mini.pairs").setup()
