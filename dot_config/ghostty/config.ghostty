@@ -1,4 +1,4 @@
-theme = Gruvbox Material Dark
+theme = light:Gruvbox Material Light,dark:Gruvbox Material Dark
 font-family = Ioskeley Mono Term
 adjust-cell-height = 3
 font-style = Medium
