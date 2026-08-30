@@ -2,6 +2,7 @@ theme = light:Gruvbox Material Light,dark:Gruvbox Material Dark
 font-family = Ioskeley Mono Term
 adjust-cell-height = 3
 shell-integration-features = no-cursor
+cursor-style-blink = false
 font-style = Medium
 window-padding-balance = true
 macos-non-native-fullscreen = visible-menu
