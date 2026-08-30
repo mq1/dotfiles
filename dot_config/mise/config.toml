@@ -9,6 +9,4 @@ tealdeer = "latest"
 lazygit = "latest"
 topgrade = "latest"
 starship = "latest"
-stylua = "latest"
-lua-language-server = "latest"
 
