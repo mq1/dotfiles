@@ -1,6 +1,6 @@
 return {
 	"ibhagwan/fzf-lua",
-	opts = { { "fzf-native", "hide" } },
+	opts = { { "fzf-native", "borderless-full", "hide" } },
 	keys = {
 		{
 			"<Leader>f",
