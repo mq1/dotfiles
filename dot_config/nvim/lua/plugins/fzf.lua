@@ -3,7 +3,7 @@ return {
 	opts = { { "fzf-native", "hide" } },
 	keys = {
 		{
-			"<Leader><Leader>",
+			"<Leader>f",
 			function()
 				FzfLua.files()
 			end,
