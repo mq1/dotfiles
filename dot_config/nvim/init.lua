@@ -8,19 +8,22 @@ vim.o.shiftwidth = 4 -- Indentation width
 vim.o.cursorline = true -- Highlight current line
 vim.o.cmdheight = 0 -- Hide command line when idle
 vim.o.showbreak = " ↪ " -- Wrapped line indicator
-vim.o.spell = true -- Enable spell check
-vim.o.spelllang = "en,it" -- Spell check (English and Italian)
 vim.o.undofile = true -- Persistent undo history
 vim.o.signcolumn = "yes" -- Always show sign column
 vim.o.ignorecase = true -- Case-insensitive search
 vim.o.swapfile = false -- Disable swap files
-vim.o.clipboard = "unnamedplus" -- Sync with system clipboard
 vim.o.scrolloff = 4 -- Lines of context
 vim.o.sidescrolloff = 8 -- Columns of context
 vim.g.mapleader = " " -- Set leader key to space
 vim.g.maplocalleader = " " -- Set leader key to space
 vim.g.loaded_netrw = 1 -- Disable netrw
 vim.g.loaded_netrwPlugin = 1 -- Disable netrw
+
+vim.schedule(function()
+	vim.o.spelllang = "en,it" -- Spell check (English and Italian)
+	vim.o.spell = true -- Enable spell check
+	vim.o.clipboard = "unnamedplus" -- Sync with system clipboard
+end)
 
 -- Show cmdline when recording
 vim.cmd("autocmd RecordingEnter * set cmdheight=1")
