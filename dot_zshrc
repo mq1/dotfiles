@@ -11,6 +11,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # aliases
 alias ls="ls --color=auto"
-alias vi="nvim"
+alias v="nvim"
 alias tzst="tar -c -v --zstd --options zstd:compression-level=19,zstd:threads=0 -f"
 
