@@ -1,6 +1,6 @@
 return {
 	"rachartier/tiny-inline-diagnostic.nvim",
-	priority = 25,
+	event = "VeryLazy",
 	opts = {
 		preset = "powerline",
 	},

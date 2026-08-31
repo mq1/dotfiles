@@ -1,5 +1,6 @@
 return {
 	"ibhagwan/fzf-lua",
+	event = "VeryLazy",
 	opts = { { "fzf-native", "hide" } },
 	keys = {
 		{

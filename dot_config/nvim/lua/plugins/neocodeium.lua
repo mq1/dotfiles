@@ -1,6 +1,6 @@
 return {
 	"monkoose/neocodeium",
-	lazy = false, -- otherwise it won't load for some reason
+	event = "VeryLazy",
 	opts = {},
 	keys = {
 		{

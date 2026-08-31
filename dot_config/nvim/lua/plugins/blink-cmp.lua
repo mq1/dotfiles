@@ -3,5 +3,6 @@ return {
 	dependencies = { "rafamadriz/friendly-snippets" },
 	version = vim.version.range("1.*"),
 	priority = 25,
+	event = "VeryLazy",
 	opts = {},
 }

@@ -1,22 +1,21 @@
 return {
 	"nvim-mini/mini.nvim",
 	priority = 100,
-	lazy = false, -- required to enable mini.starter and mini.files early
+	lazy = false, -- required to enable mini.files early
 	config = function()
-		local starter = require("mini.starter")
-		starter.setup({
-			items = {
-				starter.sections.recent_files(nil, true),
-			},
-		})
-
 		require("mini.icons").setup()
-		require("mini.notify").setup()
-		require("mini.pairs").setup()
-		require("mini.statusline").setup()
 		require("mini.files").setup()
-		require("mini.indentscope").setup()
-		require("mini.cursorword").setup()
+
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "VeryLazy",
+			callback = function()
+				require("mini.pairs").setup()
+				require("mini.notify").setup()
+				require("mini.statusline").setup()
+				require("mini.indentscope").setup()
+				require("mini.cursorword").setup()
+			end,
+		})
 	end,
 	keys = {
 		{

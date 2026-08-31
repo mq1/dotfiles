@@ -1,7 +1,11 @@
 return {
-	{ "mrcjkb/rustaceanvim" },
+	{
+		"mrcjkb/rustaceanvim",
+		event = "VeryLazy",
+	},
 	{
 		"Saecki/crates.nvim",
+		event = "VeryLazy",
 		opts = {},
 	},
 }
