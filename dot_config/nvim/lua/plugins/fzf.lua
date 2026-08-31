@@ -21,7 +21,7 @@ return {
 		{
 			"<Leader>g",
 			function()
-				FzfLua.live_grep()
+				FzfLua.live_grep_native()
 			end,
 			desc = "Find text",
 			silent = true,
