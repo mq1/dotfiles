@@ -10,18 +10,13 @@ return {
 				MiniFiles.reveal_cwd()
 			end
 		end, { desc = "Explore files", silent = true })
+
+		vim.schedule(function()
+			require("mini.pairs").setup()
+			require("mini.notify").setup()
+			require("mini.statusline").setup()
+			require("mini.indentscope").setup()
+			require("mini.cursorword").setup()
+		end)
 	end,
-	dependencies = {
-		{
-			src = "https://github.com/nvim-mini/mini.nvim",
-			defer = true,
-			config = function()
-				require("mini.pairs").setup()
-				require("mini.notify").setup()
-				require("mini.statusline").setup()
-				require("mini.indentscope").setup()
-				require("mini.cursorword").setup()
-			end,
-		},
-	},
 }

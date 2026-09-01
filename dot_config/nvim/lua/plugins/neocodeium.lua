@@ -4,7 +4,7 @@ return {
 	config = function()
 		require("neocodeium").setup()
 
-		vim.keymap.set("n", "ƒ", function()
+		vim.keymap.set("i", "ƒ", function()
 			require("neocodeium").accept()
 		end, { desc = "Neocodeium accept", silent = true })
 	end,
