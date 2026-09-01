@@ -1,6 +1,5 @@
 [tools]
 neovim = "latest"
-fzf = "latest"
 bat = "latest"
 ripgrep = "latest"
 fd = "latest"
@@ -10,4 +9,5 @@ lazygit = "latest"
 topgrade = "latest"
 starship = "latest"
 atuin = "latest"
+fzf = "latest"
 
