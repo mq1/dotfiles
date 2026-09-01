@@ -22,14 +22,8 @@ return {
 			"<Leader>e",
 			function()
 				if MiniFiles.close() == nil then
-					local buf_name = vim.api.nvim_buf_get_name(0)
-
-					if buf_name ~= "" and (vim.fn.filereadable(buf_name) == 1 or vim.fn.isdirectory(buf_name) == 1) then
-						MiniFiles.open(buf_name, false)
-						MiniFiles.reveal_cwd()
-					else
-						MiniFiles.open(nil, false)
-					end
+					MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+					MiniFiles.reveal_cwd()
 				end
 			end,
 			desc = "Explore files",
