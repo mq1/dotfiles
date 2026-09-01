@@ -1,10 +1,12 @@
 return {
-	"folke/which-key.nvim",
-	event = "VeryLazy",
-	opts = {
-		preset = "helix",
-		icons = {
-			mappings = false,
-		},
-	},
+	src = "https://github.com/folke/which-key.nvim",
+	defer = true,
+	config = function()
+		require("which-key").setup({
+			preset = "helix",
+			icons = {
+				mappings = false,
+			},
+		})
+	end,
 }

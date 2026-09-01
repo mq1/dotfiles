@@ -1,8 +1,14 @@
 return {
-	"saghen/blink.cmp",
-	dependencies = { "rafamadriz/friendly-snippets" },
+	src = "https://github.com/saghen/blink.cmp",
 	version = vim.version.range("1.*"),
-	priority = 25,
-	event = "VeryLazy",
-	opts = {},
+	defer = true,
+	config = function()
+		require("blink.cmp").setup()
+	end,
+	dependencies = {
+		{
+			src = "rafamadriz/friendly-snippets",
+			defer = true,
+		},
+	},
 }

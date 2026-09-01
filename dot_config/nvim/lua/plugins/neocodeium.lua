@@ -1,16 +1,11 @@
 return {
-	"monkoose/neocodeium",
-	event = "VeryLazy",
-	opts = {},
-	keys = {
-		{
-			"ƒ",
-			function()
-				require("neocodeium").accept()
-			end,
-			mode = "i",
-			desc = "Neocodeium accept",
-			silent = true,
-		},
-	},
+	src = "https://github.com/monkoose/neocodeium",
+	defer = true,
+	config = function()
+		require("neocodeium").setup()
+
+		vim.keymap.set("n", "ƒ", function()
+			require("neocodeium").accept()
+		end, { desc = "Neocodeium accept", silent = true })
+	end,
 }

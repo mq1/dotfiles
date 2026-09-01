@@ -1,5 +1,4 @@
--- Vim options -----------------------------------------------------------------
-
+-- Options
 vim.o.number = true -- Show current line number
 vim.o.relativenumber = true -- Show relative line numbers
 vim.o.expandtab = true -- Use spaces instead of tabs
@@ -19,6 +18,7 @@ vim.g.maplocalleader = " " -- Set leader key to space
 vim.g.loaded_netrw = 1 -- Disable netrw
 vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 
+-- Delayed
 vim.schedule(function()
 	vim.o.spelllang = "en,it" -- Spell check (English and Italian)
 	vim.o.spell = true -- Enable spell check
@@ -29,13 +29,10 @@ end)
 vim.cmd("autocmd RecordingEnter * set cmdheight=1")
 vim.cmd("autocmd RecordingLeave * set cmdheight=0")
 
--- Key bindings ----------------------------------------------------------------
-
+-- Key bindings
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights on search", silent = true })
 vim.keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { desc = "Delete current buffer", silent = true })
 vim.keymap.set("n", "<Leader><Leader>", "<C-^>", { desc = "Alternate buffer", silent = true })
 
--- Install and initialize plugins ----------------------------------------------
-
-vim.pack.add({ "https://github.com/zuqini/zpack.nvim" }, { confirm = false })
-require("zpack").setup({ defaults = { confirm = false } })
+-- Install and initialize plugins
+vim.pack.add({ "https://github.com/mezdelex/unpack.nvim" }, { confirm = false })
