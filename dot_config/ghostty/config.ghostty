@@ -1,10 +1,11 @@
 theme = light:Gruvbox Material Light,dark:Gruvbox Material Dark
+macos-non-native-fullscreen = visible-menu
+window-width = 80
+window-height = 24
 font-family = Ioskeley Mono Term
-adjust-cell-height = 3
+font-style = Medium
+adjust-cell-height = 10%
+window-padding-balance = true
 shell-integration-features = no-cursor
 cursor-style-blink = false
-font-style = Medium
-window-padding-balance = true
-macos-non-native-fullscreen = visible-menu
-fullscreen = non-native-visible-menu
 custom-shader = shaders/cursor_warp.glsl
