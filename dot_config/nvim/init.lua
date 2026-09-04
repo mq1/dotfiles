@@ -13,6 +13,7 @@ vim.o.ignorecase = true -- Case-insensitive search
 vim.o.swapfile = false -- Disable swap files
 vim.o.scrolloff = 4 -- Lines of context
 vim.o.sidescrolloff = 8 -- Columns of context
+vim.o.title = true -- Set terminal window title
 vim.g.mapleader = " " -- Set leader key to space
 vim.g.maplocalleader = " " -- Set leader key to space
 vim.g.loaded_netrw = 1 -- Disable netrw
