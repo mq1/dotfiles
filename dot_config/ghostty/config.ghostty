@@ -1,7 +1,5 @@
 theme = light:Gruvbox Material Light,dark:Gruvbox Material Dark
-macos-non-native-fullscreen = visible-menu
-window-width = 80
-window-height = 24
+maximize = true
 font-family = Ioskeley Mono Term
 font-style = Medium
 adjust-cell-height = 10%
