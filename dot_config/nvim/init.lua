@@ -14,12 +14,13 @@ vim.o.swapfile = false -- Disable swap files
 vim.o.scrolloff = 4 -- Lines of context
 vim.o.sidescrolloff = 8 -- Columns of context
 vim.o.title = true -- Set terminal window title
+vim.o.winborder = "rounded" -- Rounded corners for floating windows
 vim.g.mapleader = " " -- Set leader key to space
 vim.g.maplocalleader = " " -- Set leader key to space
 vim.g.loaded_netrw = 1 -- Disable netrw
 vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 
--- Delayed
+-- Deferred
 vim.schedule(function()
 	vim.o.spelllang = "en,it" -- Spell check (English and Italian)
 	vim.o.spell = true -- Enable spell check
