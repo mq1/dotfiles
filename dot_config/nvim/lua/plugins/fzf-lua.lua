@@ -4,8 +4,8 @@ return {
 	config = function()
 		require("fzf-lua").setup()
 
-		vim.keymap.set("n", "<Leader>ff", "<Cmd>FzfLua files<CR>", { desc = "Find file", silent = true })
-		vim.keymap.set("n", "<Leader>fb", "<Cmd>FzfLua buffers<CR>", { desc = "Find buffer", silent = true })
-		vim.keymap.set("n", "<Leader>fg", "<Cmd>FzfLua live_grep_native<CR>", { desc = "Find text", silent = true })
+		vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Find file", silent = true })
+		vim.keymap.set("n", "<Leader>b", "<Cmd>FzfLua buffers<CR>", { desc = "Find buffer", silent = true })
+		vim.keymap.set("n", "<Leader>g", "<Cmd>FzfLua live_grep_native<CR>", { desc = "Find text", silent = true })
 	end,
 }

@@ -8,7 +8,7 @@ return {
 			Snacks.terminal()
 		end, { desc = "Terminal", silent = true })
 
-		vim.keymap.set("n", "<Leader>g", function()
+		vim.keymap.set("n", "<Leader>l", function()
 			Snacks.lazygit()
 		end, { desc = "Lazygit", silent = true })
 	end,
