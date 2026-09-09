@@ -9,5 +9,5 @@ lazygit = "latest"
 topgrade = "latest"
 starship = "latest"
 atuin = "latest"
-fzf = "latest"
+skim = "latest"
 
