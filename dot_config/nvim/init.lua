@@ -35,8 +35,6 @@ vim.cmd("autocmd RecordingLeave * set cmdheight=0")
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights on search", silent = true })
 vim.keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { desc = "Delete current buffer", silent = true })
 vim.keymap.set("n", "<Leader><Leader>", "<C-^>", { desc = "Alternate buffer", silent = true })
-vim.keymap.set("n", "H", "<Cmd>bprevious<CR>", { desc = "Prev buffer", silent = true })
-vim.keymap.set("n", "L", "<Cmd>bnext<CR>", { desc = "Next buffer", silent = true })
 
 -- Install and initialize plugins
 vim.pack.add({ "https://github.com/mezdelex/unpack.nvim" }, { confirm = false })
