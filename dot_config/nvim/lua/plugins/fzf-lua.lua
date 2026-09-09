@@ -2,7 +2,7 @@ return {
 	src = "https://github.com/ibhagwan/fzf-lua",
 	defer = true,
 	config = function()
-		require("fzf-lua").setup()
+		require("fzf-lua").setup({ "skim" })
 
 		vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Find file", silent = true })
 		vim.keymap.set("n", "<Leader>b", "<Cmd>FzfLua buffers<CR>", { desc = "Find buffer", silent = true })
