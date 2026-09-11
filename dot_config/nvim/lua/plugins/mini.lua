@@ -12,6 +12,8 @@ return {
 		end, { desc = "Explore files", silent = true })
 
 		vim.schedule(function()
+			require("mini.diff").setup()
+			require("mini.git").setup()
 			require("mini.pairs").setup()
 			require("mini.notify").setup()
 			require("mini.statusline").setup()
