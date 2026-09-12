@@ -20,21 +20,21 @@ vim.g.maplocalleader = " " -- Set leader key to space
 vim.g.loaded_netrw = 1 -- Disable netrw
 vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 
+-- Install and initialize plugins
+vim.pack.add({ "https://github.com/mezdelex/unpack.nvim" }, { confirm = false })
+
 -- Deferred
 vim.schedule(function()
 	vim.o.spelllang = "en,it" -- Spell check (English and Italian)
 	vim.o.spell = true -- Enable spell check
 	vim.o.clipboard = "unnamedplus" -- Sync with system clipboard
+
+	-- Show cmdline when recording
+	vim.cmd("autocmd RecordingEnter * set cmdheight=1")
+	vim.cmd("autocmd RecordingLeave * set cmdheight=0")
+
+	-- Key bindings
+	vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights on search", silent = true })
+	vim.keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { desc = "Delete current buffer", silent = true })
+	vim.keymap.set("n", "<Leader><Leader>", "<C-^>", { desc = "Alternate buffer", silent = true })
 end)
-
--- Show cmdline when recording
-vim.cmd("autocmd RecordingEnter * set cmdheight=1")
-vim.cmd("autocmd RecordingLeave * set cmdheight=0")
-
--- Key bindings
-vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights on search", silent = true })
-vim.keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { desc = "Delete current buffer", silent = true })
-vim.keymap.set("n", "<Leader><Leader>", "<C-^>", { desc = "Alternate buffer", silent = true })
-
--- Install and initialize plugins
-vim.pack.add({ "https://github.com/mezdelex/unpack.nvim" }, { confirm = false })
