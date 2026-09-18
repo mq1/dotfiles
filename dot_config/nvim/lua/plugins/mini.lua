@@ -14,13 +14,21 @@ return {
 		vim.schedule(function()
 			require("mini.diff").setup()
 			require("mini.git").setup()
-			require("mini.map").setup()
-			MiniMap.open()
 			require("mini.pairs").setup()
 			require("mini.notify").setup()
 			require("mini.statusline").setup()
 			require("mini.indentscope").setup()
 			require("mini.cursorword").setup()
+
+			local map = require("mini.map")
+			map.setup({
+				integrations = {
+					map.gen_integration.builtin_search(),
+					map.gen_integration.diff(),
+					map.gen_integration.diagnostic(),
+				},
+			})
+			map.open()
 		end)
 	end,
 }
