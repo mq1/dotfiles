@@ -15,6 +15,7 @@ return {
 			require("mini.diff").setup()
 			require("mini.git").setup()
 			require("mini.map").setup()
+			MiniMap.open()
 			require("mini.pairs").setup()
 			require("mini.notify").setup()
 			require("mini.statusline").setup()
