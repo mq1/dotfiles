@@ -36,5 +36,4 @@ vim.schedule(function()
 	-- Key bindings
 	vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights on search", silent = true })
 	vim.keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { desc = "Delete current buffer", silent = true })
-	vim.keymap.set("n", "<Leader><Leader>", "<C-^>", { desc = "Alternate buffer", silent = true })
 end)

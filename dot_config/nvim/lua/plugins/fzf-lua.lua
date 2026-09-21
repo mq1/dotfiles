@@ -8,7 +8,7 @@ return {
 			FzfLua.files()
 		end, { desc = "Find file", silent = true })
 
-		vim.keymap.set("n", "<Leader>b", function()
+		vim.keymap.set("n", "<Leader><Leader>", function()
 			FzfLua.buffers()
 		end, { desc = "Find buffer", silent = true })
 
