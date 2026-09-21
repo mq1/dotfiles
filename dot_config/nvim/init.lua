@@ -96,7 +96,7 @@ vim.schedule(function()
 	require("mini.indentscope").setup()
 	require("mini.cursorword").setup()
 
-	require("fzf-lua").setup({ "skim" })
+	require("fzf-lua").setup()
 
 	require("blink.cmp").setup()
 
