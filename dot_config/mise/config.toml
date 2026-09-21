@@ -8,5 +8,5 @@ tealdeer = "latest"
 lazygit = "latest"
 starship = "latest"
 atuin = "latest"
-skim = "latest"
+fzf = "latest"
 
