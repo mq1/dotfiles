@@ -87,6 +87,7 @@ vim.schedule(function()
 		"https://github.com/monkoose/neocodeium", -- ai completion
 		"https://github.com/Saecki/crates.nvim", -- rust crates utility
 		"https://github.com/MagicDuck/grug-far.nvim", -- find and replace
+		"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack gui
 	}, { confirm = false })
 
 	require("mini.statusline").setup()
