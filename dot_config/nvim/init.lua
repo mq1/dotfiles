@@ -60,6 +60,7 @@ end, { desc = "Neocodeium accept", silent = true })
 vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
+	"https://github.com/lewis6991/satellite.nvim", -- scrollbar
 }, { confirm = false })
 
 vim.g.gruvbox_material_better_performance = 1
@@ -78,7 +79,6 @@ vim.schedule(function()
 	-- Plugins --
 	vim.pack.add({
 		"https://github.com/lewis6991/gitsigns.nvim", -- git integration
-		"https://github.com/lewis6991/satellite.nvim", -- scrollbar
 		"https://github.com/ibhagwan/fzf-lua", -- fuzzy search
 		"https://github.com/stevearc/conform.nvim", -- code formatter
 		"https://github.com/neovim/nvim-lspconfig", -- lsp configs
@@ -89,9 +89,9 @@ vim.schedule(function()
 		"https://github.com/MagicDuck/grug-far.nvim", -- find and replace
 	}, { confirm = false })
 
+	require("mini.statusline").setup()
 	require("mini.pairs").setup()
 	require("mini.notify").setup()
-	require("mini.statusline").setup()
 	require("mini.indentscope").setup()
 	require("mini.cursorword").setup()
 
