@@ -1,10 +1,14 @@
-#theme = light:Gruvbox Material Light,dark:Gruvbox Material Dark
 theme = Gruvbox Material Dark
+
+# window
 maximize = true
+
+# font
 font-family = Ioskeley Mono Term
 font-style = Medium
-adjust-cell-height = 13%
-window-padding-balance = true
-shell-integration-features = no-cursor
+adjust-cell-height = 15%
+
+# cursor
 cursor-style-blink = false
+adjust-cursor-thickness = 2
 custom-shader = shaders/cursor_warp.glsl
