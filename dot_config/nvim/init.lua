@@ -20,14 +20,6 @@ vim.g.maplocalleader = " " -- Set leader key to space
 vim.g.loaded_netrw = 1 -- Disable netrw
 vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 
--- Completion --
-vim.o.autocomplete = true -- Enable autocompletion
-vim.o.complete = ".,w,b,o" -- Completion sources
-vim.o.completeopt = "menuone,noselect,fuzzy" -- Completion options
-vim.o.pumborder = "rounded" -- Completion menu border
-vim.o.pumheight = 10 -- Completion menu height
-vim.o.pummaxwidth = 60 -- Completion menu max width
-
 -- Show cmdline when recording
 vim.cmd("autocmd RecordingEnter * set cmdheight=1")
 vim.cmd("autocmd RecordingLeave * set cmdheight=0")
@@ -37,28 +29,17 @@ vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights o
 vim.keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { desc = "Delete current buffer", silent = true })
 vim.keymap.set("n", "<Leader><Leader>", "<C-^>", { desc = "Alternate buffer", silent = true })
 
+vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Find file", silent = true })
+vim.keymap.set("n", "<Leader>b", "<Cmd>FzfLua buffers<CR>", { desc = "Find buffer", silent = true })
+vim.keymap.set("n", "<Leader>g", "<Cmd>FzfLua live_grep_native<CR>", { desc = "Find text", silent = true })
+vim.keymap.set("n", "<Leader>d", "<Cmd>FzfLua diagnostics_workspace<CR>", { desc = "Diagnostics", silent = true })
+
 vim.keymap.set("n", "<Leader>e", function()
 	if MiniFiles.close() == nil then
 		MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
 		MiniFiles.reveal_cwd()
 	end
 end, { desc = "Explore files", silent = true })
-
-vim.keymap.set("n", "<Leader>f", function()
-	FzfLua.files()
-end, { desc = "Find file", silent = true })
-
-vim.keymap.set("n", "<Leader>b", function()
-	FzfLua.buffers()
-end, { desc = "Find buffer", silent = true })
-
-vim.keymap.set("n", "<Leader>g", function()
-	FzfLua.live_grep_native()
-end, { desc = "Find text", silent = true })
-
-vim.keymap.set("n", "<Leader>d", function()
-	FzfLua.diagnostics_workspace()
-end, { desc = "Diagnostics", silent = true })
 
 vim.keymap.set("i", "ƒ", function()
 	require("neocodeium").accept()
@@ -95,6 +76,11 @@ vim.schedule(function()
 		"https://github.com/Saecki/crates.nvim", -- rust crates utility
 		"https://github.com/MagicDuck/grug-far.nvim", -- find and replace
 		"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack gui
+
+		-- completion
+		"https://github.com/rafamadriz/friendly-snippets",
+		"https://github.com/saghen/blink.lib",
+		"https://github.com/saghen/blink.cmp",
 	}, { confirm = false })
 
 	require("mini.statusline").setup()
@@ -102,9 +88,6 @@ vim.schedule(function()
 	require("mini.notify").setup()
 	require("mini.indentscope").setup()
 	require("mini.cursorword").setup()
-
-	MiniIcons.tweak_lsp_kind()
-	require("mini.completion").setup()
 
 	require("fzf-lua").setup()
 
@@ -137,4 +120,9 @@ vim.schedule(function()
 	vim.lsp.enable({ "lua_ls", "rust_analyzer" })
 	vim.lsp.inlay_hint.enable()
 	vim.diagnostic.config({ virtual_lines = { current_line = true } })
+
+	-- Completion --
+	require("blink.cmp").setup({
+		fuzzy = { implementation = "lua" },
+	})
 end)
