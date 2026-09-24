@@ -76,11 +76,7 @@ vim.schedule(function()
 		"https://github.com/Saecki/crates.nvim", -- rust crates utility
 		"https://github.com/MagicDuck/grug-far.nvim", -- find and replace
 		"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack gui
-
-		-- completion
-		"https://github.com/rafamadriz/friendly-snippets",
-		"https://github.com/saghen/blink.lib",
-		"https://github.com/saghen/blink.cmp",
+		{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- code completion
 	}, { confirm = false })
 
 	require("mini.statusline").setup()
@@ -121,8 +117,5 @@ vim.schedule(function()
 	vim.lsp.inlay_hint.enable()
 	vim.diagnostic.config({ virtual_lines = { current_line = true } })
 
-	-- Completion --
-	require("blink.cmp").setup({
-		fuzzy = { implementation = "lua" },
-	})
+	require("blink.cmp").setup()
 end)
