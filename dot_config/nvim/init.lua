@@ -34,25 +34,25 @@ vim.cmd("autocmd RecordingEnter * set cmdheight=1")
 vim.cmd("autocmd RecordingLeave * set cmdheight=0")
 
 -- Keybindings --
-vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights on search", silent = true })
-vim.keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { desc = "Delete current buffer", silent = true })
-vim.keymap.set("n", "<Leader><Leader>", "<C-^>", { desc = "Alternate buffer", silent = true })
+vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights on search" })
+vim.keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { desc = "Delete current buffer" })
+vim.keymap.set("n", "<Leader><Leader>", "<C-^>", { desc = "Alternate buffer" })
 
-vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Find file", silent = true })
-vim.keymap.set("n", "<Leader>b", "<Cmd>FzfLua buffers<CR>", { desc = "Find buffer", silent = true })
-vim.keymap.set("n", "<Leader>g", "<Cmd>FzfLua live_grep_native<CR>", { desc = "Find text", silent = true })
-vim.keymap.set("n", "<Leader>d", "<Cmd>FzfLua diagnostics_workspace<CR>", { desc = "Diagnostics", silent = true })
+vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Find file" })
+vim.keymap.set("n", "<Leader>b", "<Cmd>FzfLua buffers<CR>", { desc = "Find buffer" })
+vim.keymap.set("n", "<Leader>g", "<Cmd>FzfLua live_grep_native<CR>", { desc = "Find text" })
+vim.keymap.set("n", "<Leader>d", "<Cmd>FzfLua diagnostics_workspace<CR>", { desc = "Diagnostics" })
 
 vim.keymap.set("n", "<Leader>e", function()
 	if MiniFiles.close() == nil then
 		MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
 		MiniFiles.reveal_cwd()
 	end
-end, { desc = "Explore files", silent = true })
+end, { desc = "Explore files" })
 
 vim.keymap.set("i", "ƒ", function()
 	require("neocodeium").accept()
-end, { desc = "Neocodeium accept", silent = true })
+end, { desc = "Neocodeium accept" })
 
 -- Plugins --
 vim.pack.add({
