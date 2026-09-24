@@ -20,6 +20,14 @@ vim.g.maplocalleader = " " -- Set leader key to space
 vim.g.loaded_netrw = 1 -- Disable netrw
 vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 
+-- Completion --
+vim.o.autocomplete = true -- Enable autocompletion
+vim.o.complete = ".,w,b,o" -- Completion sources
+vim.o.completeopt = "menuone,noselect,fuzzy" -- Completion options
+vim.o.pumborder = "rounded" -- Completion menu border
+vim.o.pumheight = 10 -- Completion menu height
+vim.o.pummaxwidth = 60 -- Completion menu max width
+
 -- Show cmdline when recording
 vim.cmd("autocmd RecordingEnter * set cmdheight=1")
 vim.cmd("autocmd RecordingLeave * set cmdheight=0")
@@ -82,7 +90,6 @@ vim.schedule(function()
 		"https://github.com/ibhagwan/fzf-lua", -- fuzzy search
 		"https://github.com/stevearc/conform.nvim", -- code formatter
 		"https://github.com/neovim/nvim-lspconfig", -- lsp configs
-		{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- code completion
 		"https://github.com/folke/which-key.nvim", -- keymap hints
 		"https://github.com/monkoose/neocodeium", -- ai completion
 		"https://github.com/Saecki/crates.nvim", -- rust crates utility
@@ -96,9 +103,10 @@ vim.schedule(function()
 	require("mini.indentscope").setup()
 	require("mini.cursorword").setup()
 
-	require("fzf-lua").setup()
+	MiniIcons.tweak_lsp_kind()
+	require("mini.completion").setup()
 
-	require("blink.cmp").setup()
+	require("fzf-lua").setup()
 
 	require("conform").setup({
 		formatters_by_ft = {
