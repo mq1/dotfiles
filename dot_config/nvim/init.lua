@@ -83,7 +83,6 @@ vim.schedule(function()
 		"https://github.com/folke/which-key.nvim", -- keymap hints
 		"https://github.com/monkoose/neocodeium", -- ai completion
 		"https://github.com/Saecki/crates.nvim", -- rust crates utility
-		"https://github.com/MagicDuck/grug-far.nvim", -- find and replace
 		"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack gui
 	}, { confirm = false })
 
@@ -115,8 +114,6 @@ vim.schedule(function()
 	})
 
 	require("neocodeium").setup()
-
-	require("grug-far").setup()
 
 	require("crates").setup()
 
