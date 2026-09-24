@@ -123,6 +123,8 @@ vim.schedule(function()
 
 	require("grug-far").setup()
 
+	require("crates").setup()
+
 	-- LSP --
 	vim.lsp.enable({ "lua_ls", "rust_analyzer" })
 	vim.lsp.inlay_hint.enable()
