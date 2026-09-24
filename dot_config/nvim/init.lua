@@ -20,6 +20,15 @@ vim.g.maplocalleader = " " -- Set leader key to space
 vim.g.loaded_netrw = 1 -- Disable netrw
 vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 
+-- Completion --
+vim.o.autocomplete = true -- Enable autocompletion
+vim.o.complete = ".,w,b,o" -- Completion sources
+vim.o.completeopt = "menuone,noselect,fuzzy,popup" -- Completion options
+vim.o.pumborder = "rounded" -- Completion menu border
+vim.o.pumheight = 10 -- Completion menu height
+vim.o.pummaxwidth = 60 -- Completion menu max width
+vim.o.autocompletedelay = 100 -- Autocomplete delay
+
 -- Show cmdline when recording
 vim.cmd("autocmd RecordingEnter * set cmdheight=1")
 vim.cmd("autocmd RecordingLeave * set cmdheight=0")
@@ -76,7 +85,6 @@ vim.schedule(function()
 		"https://github.com/Saecki/crates.nvim", -- rust crates utility
 		"https://github.com/MagicDuck/grug-far.nvim", -- find and replace
 		"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack gui
-		{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- code completion
 	}, { confirm = false })
 
 	require("mini.statusline").setup()
@@ -116,6 +124,4 @@ vim.schedule(function()
 	vim.lsp.enable({ "lua_ls", "rust_analyzer" })
 	vim.lsp.inlay_hint.enable()
 	vim.diagnostic.config({ virtual_lines = { current_line = true } })
-
-	require("blink.cmp").setup()
 end)
