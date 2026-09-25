@@ -27,7 +27,7 @@ vim.o.completeopt = "menuone,noselect,fuzzy,popup" -- Completion options
 vim.o.pumborder = "rounded" -- Completion menu border
 vim.o.pumheight = 10 -- Completion menu height
 vim.o.pummaxwidth = 60 -- Completion menu max width
-vim.o.autocompletedelay = 100 -- Autocomplete delay
+vim.o.autocompletedelay = 250 -- Autocomplete delay
 
 -- Show cmdline when recording
 vim.cmd("autocmd RecordingEnter * set cmdheight=1")
