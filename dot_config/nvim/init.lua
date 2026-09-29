@@ -16,6 +16,9 @@ vim.o.scrolloff = 4 -- Lines of context
 vim.o.sidescrolloff = 8 -- Columns of context
 vim.o.title = true -- Set terminal window title
 vim.o.winborder = "rounded" -- Rounded corners for floating windows
+vim.o.spelllang = "en,it" -- Set up spell check (English and Italian)
+vim.o.spell = true -- Enable spell check
+vim.o.clipboard = "unnamedplus" -- Sync with system clipboard
 vim.g.mapleader = " " -- Set leader key to space
 vim.g.maplocalleader = " " -- Set leader key to space
 vim.g.loaded_netrw = 1 -- Disable netrw
@@ -46,70 +49,55 @@ vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
 	"https://github.com/stevearc/oil.nvim", -- file explorer
+	"https://github.com/ibhagwan/fzf-lua", -- fuzzy search
+	"https://github.com/stevearc/conform.nvim", -- code formatter
+	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
+	"https://github.com/folke/which-key.nvim", -- keymap hints
+	"https://github.com/monkoose/neocodeium", -- ai completion
+	"https://github.com/Saecki/crates.nvim", -- rust crates utility
+	"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack gui
+	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- code completion
 }, { confirm = false })
 
 vim.g.gruvbox_material_better_performance = 1
 vim.cmd.colorscheme("gruvbox-material")
 
 require("mini.icons").setup()
+require("mini.git").setup()
+require("mini.diff").setup()
+require("mini.statusline").setup()
+require("mini.pairs").setup()
+require("mini.notify").setup()
+require("mini.indentscope").setup()
+require("mini.cursorword").setup()
+
 require("oil").setup()
 
--- Deferred --
-vim.schedule(function()
-	-- Options --
-	vim.o.spelllang = "en,it" -- Set up spell check (English and Italian)
-	vim.o.spell = true -- Enable spell check
-	vim.o.clipboard = "unnamedplus" -- Sync with system clipboard
+require("fzf-lua").setup()
 
-	-- Plugins --
-	vim.pack.add({
-		"https://github.com/ibhagwan/fzf-lua", -- fuzzy search
-		"https://github.com/stevearc/conform.nvim", -- code formatter
-		"https://github.com/neovim/nvim-lspconfig", -- lsp configs
-		"https://github.com/folke/which-key.nvim", -- keymap hints
-		"https://github.com/monkoose/neocodeium", -- ai completion
-		"https://github.com/Saecki/crates.nvim", -- rust crates utility
-		"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack gui
-		{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- code completion
-	}, { confirm = false })
+require("conform").setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		rust = { "rustfmt" },
+		toml = { "taplo" },
+	},
+	format_on_save = {
+		timeout_ms = 500,
+		lsp_format = "fallback",
+	},
+})
 
-	require("mini.git").setup()
-	require("mini.diff").setup()
-	require("mini.statusline").setup()
-	require("mini.pairs").setup()
-	require("mini.notify").setup()
-	require("mini.indentscope").setup()
-	require("mini.cursorword").setup()
+require("which-key").setup({
+	preset = "helix",
+	icons = { mappings = false },
+})
 
-	require("fzf-lua").setup()
+require("neocodeium").setup()
 
-	require("conform").setup({
-		formatters_by_ft = {
-			lua = { "stylua" },
-			rust = { "rustfmt" },
-			toml = { "taplo" },
-		},
-		format_on_save = {
-			timeout_ms = 500,
-			lsp_format = "fallback",
-		},
-	})
+require("crates").setup()
 
-	require("which-key").setup({
-		preset = "helix",
-		icons = {
-			mappings = false,
-		},
-	})
-
-	require("neocodeium").setup()
-
-	require("crates").setup()
-
-	require("blink.cmp").setup()
-
-	-- LSP --
-	vim.lsp.enable({ "lua_ls", "rust_analyzer" })
-	vim.lsp.inlay_hint.enable()
-	vim.diagnostic.config({ virtual_lines = { current_line = true } })
-end)
+-- LSP
+vim.lsp.enable({ "lua_ls", "rust_analyzer" })
+vim.lsp.inlay_hint.enable()
+vim.diagnostic.config({ virtual_lines = { current_line = true } })
+require("blink.cmp").setup()
