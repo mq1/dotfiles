@@ -10,6 +10,7 @@ vim.o.showbreak = " ↪ " -- Wrapped line indicator
 vim.o.undofile = true -- Persistent undo history
 vim.o.signcolumn = "yes" -- Always show sign column
 vim.o.ignorecase = true -- Case-insensitive search
+vim.o.smartcase = true -- Case-sensitive search if any caps
 vim.o.swapfile = false -- Disable swap files
 vim.o.scrolloff = 4 -- Lines of context
 vim.o.sidescrolloff = 8 -- Columns of context
