@@ -34,12 +34,7 @@ vim.keymap.set("n", "<Leader>b", "<Cmd>FzfLua buffers<CR>", { desc = "Find buffe
 vim.keymap.set("n", "<Leader>g", "<Cmd>FzfLua live_grep_native<CR>", { desc = "Find text" })
 vim.keymap.set("n", "<Leader>d", "<Cmd>FzfLua diagnostics_workspace<CR>", { desc = "Diagnostics" })
 
-vim.keymap.set("n", "<Leader>e", function()
-	if MiniFiles.close() == nil then
-		MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-		MiniFiles.reveal_cwd()
-	end
-end, { desc = "Explore files" })
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 vim.keymap.set("i", "ƒ", function()
 	require("neocodeium").accept()
@@ -49,13 +44,14 @@ end, { desc = "Neocodeium accept" })
 vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
+	"https://github.com/stevearc/oil.nvim", -- file explorer
 }, { confirm = false })
 
 vim.g.gruvbox_material_better_performance = 1
 vim.cmd.colorscheme("gruvbox-material")
 
 require("mini.icons").setup()
-require("mini.files").setup()
+require("oil").setup()
 
 -- Deferred --
 vim.schedule(function()
