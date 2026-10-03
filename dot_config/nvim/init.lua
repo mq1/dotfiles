@@ -48,8 +48,7 @@ end, { desc = "Neocodeium accept" })
 
 -- Plugins --
 vim.pack.add({
-	--"https://github.com/sainnhe/gruvbox-material", -- color scheme
-	"https://github.com/webhooked/kanso.nvim", -- color scheme
+	"https://github.com/sainnhe/gruvbox-material", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
 	"https://github.com/ibhagwan/fzf-lua", -- fuzzy search
 	"https://github.com/stevearc/conform.nvim", -- code formatter
@@ -61,16 +60,8 @@ vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- code completion
 }, { confirm = false })
 
--- Colorscheme --
-
--- vim.g.gruvbox_material_better_performance = 1
--- vim.cmd.colorscheme("gruvbox-material")
-
-require("kanso").setup({
-	compile = true,
-	background = { dark = "mist", light = "pearl" },
-})
-vim.cmd.colorscheme("kanso")
+vim.g.gruvbox_material_better_performance = 1
+vim.cmd.colorscheme("gruvbox-material")
 
 require("mini.icons").setup()
 require("mini.files").setup()
