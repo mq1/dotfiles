@@ -51,6 +51,7 @@ vim.pack.add({
 	"https://github.com/stevearc/oil.nvim", -- file explorer
 	"https://github.com/ibhagwan/fzf-lua", -- fuzzy search
 	"https://github.com/stevearc/conform.nvim", -- code formatter
+	"https://github.com/nvim-treesitter/nvim-treesitter", -- syntax highlighting
 	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
 	"https://github.com/folke/which-key.nvim", -- keymap hints
 	"https://github.com/monkoose/neocodeium", -- ai completion
@@ -70,10 +71,24 @@ require("mini.pairs").setup()
 require("mini.notify").setup()
 require("mini.indentscope").setup()
 require("mini.cursorword").setup()
-
 require("oil").setup()
-
 require("fzf-lua").setup()
+require("neocodeium").setup()
+require("crates").setup()
+require("which-key").setup({ preset = "helix", icons = { mappings = false } })
+
+-- Syntax highlighting --
+require("nvim-treesitter").install({ "lua", "rust" })
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    pcall(vim.treesitter.start)
+  end,
+})
+
+-- LSP --
+vim.lsp.enable({ "lua_ls", "rust_analyzer" })
+vim.lsp.inlay_hint.enable()
+vim.diagnostic.config({ virtual_lines = { current_line = true } })
 
 require("conform").setup({
 	formatters_by_ft = {
@@ -87,17 +102,4 @@ require("conform").setup({
 	},
 })
 
-require("which-key").setup({
-	preset = "helix",
-	icons = { mappings = false },
-})
-
-require("neocodeium").setup()
-
-require("crates").setup()
-
--- LSP
-vim.lsp.enable({ "lua_ls", "rust_analyzer" })
-vim.lsp.inlay_hint.enable()
-vim.diagnostic.config({ virtual_lines = { current_line = true } })
 require("blink.cmp").setup()
