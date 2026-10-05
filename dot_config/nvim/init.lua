@@ -58,6 +58,7 @@ vim.pack.add({
 	"https://github.com/Saecki/crates.nvim", -- rust crates utility
 	"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack gui
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- code completion
+	"https://github.com/rachartier/tiny-inline-diagnostic.nvim", -- inline diagnostics
 }, { confirm = false })
 
 vim.g.gruvbox_material_better_performance = 1
@@ -79,6 +80,7 @@ require("which-key").setup({ preset = "helix" })
 
 -- Syntax highlighting --
 require("nvim-treesitter").install({ "lua", "rust" })
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "lua", "rust" },
 	callback = function()
@@ -89,8 +91,22 @@ vim.api.nvim_create_autocmd("FileType", {
 -- LSP --
 vim.lsp.enable({ "lua_ls", "rust_analyzer" })
 vim.lsp.inlay_hint.enable()
-vim.diagnostic.config({ virtual_lines = { current_line = true } })
 
+require("blink.cmp").setup()
+
+require("tiny-inline-diagnostic").setup({
+	preset = "powerline",
+	options = {
+		show_all_diags_on_cursorline = true,
+		multilines = {
+			enabled = true,
+			always_show = true,
+			severity = { vim.diagnostic.severity.ERROR },
+		},
+	},
+})
+
+-- Code formatters --
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
@@ -102,5 +118,3 @@ require("conform").setup({
 		lsp_format = "fallback",
 	},
 })
-
-require("blink.cmp").setup()
