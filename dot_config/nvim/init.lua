@@ -35,12 +35,10 @@ vim.keymap.set("n", "<Leader><Leader>", "<C-^>", { desc = "Alternate buffer" })
 
 vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Find file" })
 vim.keymap.set("n", "<Leader>b", "<Cmd>FzfLua buffers<CR>", { desc = "Find buffer" })
-vim.keymap.set("n", "<Leader>g", "<Cmd>FzfLua live_grep_native<CR>", { desc = "Find text" })
+vim.keymap.set("n", "<Leader>g", "<Cmd>FzfLua live_grep<CR>", { desc = "Find text" })
 vim.keymap.set("n", "<Leader>d", "<Cmd>FzfLua diagnostics_workspace<CR>", { desc = "Diagnostics" })
 
-vim.keymap.set("n", "<Leader>e", function()
-	MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-end, { desc = "Explore files" })
+vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Explore files" })
 
 vim.keymap.set("i", "ƒ", function()
 	require("neocodeium").accept()
@@ -50,6 +48,7 @@ end, { desc = "Neocodeium accept" })
 vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
+	"https://github.com/stevearc/oil.nvim", -- file explorer
 	"https://github.com/ibhagwan/fzf-lua", -- fuzzy search
 	"https://github.com/stevearc/conform.nvim", -- code formatter
 	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
@@ -64,7 +63,6 @@ vim.g.gruvbox_material_better_performance = 1
 vim.cmd.colorscheme("gruvbox-material")
 
 require("mini.icons").setup()
-require("mini.files").setup()
 require("mini.git").setup()
 require("mini.diff").setup()
 require("mini.statusline").setup()
@@ -72,6 +70,8 @@ require("mini.pairs").setup()
 require("mini.notify").setup()
 require("mini.indentscope").setup()
 require("mini.cursorword").setup()
+
+require("oil").setup()
 
 require("fzf-lua").setup()
 
