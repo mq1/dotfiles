@@ -75,7 +75,7 @@ require("oil").setup()
 require("fzf-lua").setup()
 require("neocodeium").setup()
 require("crates").setup()
-require("which-key").setup({ preset = "helix", icons = { mappings = false } })
+require("which-key").setup({ preset = "helix" })
 
 -- Syntax highlighting --
 require("nvim-treesitter").install({ "lua", "rust" })
