@@ -80,9 +80,9 @@ require("which-key").setup({ preset = "helix", icons = { mappings = false } })
 -- Syntax highlighting --
 require("nvim-treesitter").install({ "lua", "rust" })
 vim.api.nvim_create_autocmd("FileType", {
-  callback = function()
-    pcall(vim.treesitter.start)
-  end,
+	callback = function()
+		vim.treesitter.start()
+	end,
 })
 
 -- LSP --
