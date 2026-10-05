@@ -1,4 +1,8 @@
 -- Options --
+vim.g.mapleader = " " -- Set leader key to space
+vim.g.maplocalleader = " " -- Set leader key to space
+vim.g.loaded_netrw = 1 -- Disable netrw
+vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 vim.o.number = true -- Show current line number
 vim.o.relativenumber = true -- Show relative line numbers
 vim.o.expandtab = true -- Use spaces instead of tabs
@@ -12,17 +16,12 @@ vim.o.signcolumn = "yes" -- Always show sign column
 vim.o.ignorecase = true -- Case-insensitive search
 vim.o.smartcase = true -- Case-sensitive search if any caps
 vim.o.swapfile = false -- Disable swap files
-vim.o.scrolloff = 4 -- Lines of context
-vim.o.sidescrolloff = 8 -- Columns of context
+vim.o.scrolloff = 10 -- Lines of context
 vim.o.title = true -- Set terminal window title
 vim.o.winborder = "rounded" -- Rounded corners for floating windows
 vim.o.spelllang = "en,it" -- Set up spell check (English and Italian)
 vim.o.spell = true -- Enable spell check
 vim.o.clipboard = "unnamedplus" -- Sync with system clipboard
-vim.g.mapleader = " " -- Set leader key to space
-vim.g.maplocalleader = " " -- Set leader key to space
-vim.g.loaded_netrw = 1 -- Disable netrw
-vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 
 -- Show cmdline when recording
 vim.cmd("autocmd RecordingEnter * set cmdheight=1")
@@ -30,7 +29,6 @@ vim.cmd("autocmd RecordingLeave * set cmdheight=0")
 
 -- Keybindings --
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights on search" })
-vim.keymap.set("n", "<C-x>", "<Cmd>bdelete<CR>", { desc = "Delete current buffer" })
 vim.keymap.set("n", "<Leader><Leader>", "<C-^>", { desc = "Alternate buffer" })
 
 vim.keymap.set("n", "<Leader>f", "<Cmd>FzfLua files<CR>", { desc = "Find file" })
@@ -58,7 +56,6 @@ vim.pack.add({
 	"https://github.com/Saecki/crates.nvim", -- rust crates utility
 	"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack gui
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- code completion
-	"https://github.com/rachartier/tiny-inline-diagnostic.nvim", -- inline diagnostics
 }, { confirm = false })
 
 vim.g.gruvbox_material_better_performance = 1
@@ -91,20 +88,8 @@ vim.api.nvim_create_autocmd("FileType", {
 -- LSP --
 vim.lsp.enable({ "lua_ls", "rust_analyzer" })
 vim.lsp.inlay_hint.enable()
-
+vim.diagnostic.config({ virtual_text = true })
 require("blink.cmp").setup()
-
-require("tiny-inline-diagnostic").setup({
-	preset = "powerline",
-	options = {
-		show_all_diags_on_cursorline = true,
-		multilines = {
-			enabled = true,
-			always_show = true,
-			severity = { vim.diagnostic.severity.ERROR },
-		},
-	},
-})
 
 -- Code formatters --
 require("conform").setup({
