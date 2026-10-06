@@ -49,7 +49,7 @@ vim.pack.add({
 	"https://github.com/stevearc/oil.nvim", -- file explorer
 	"https://github.com/ibhagwan/fzf-lua", -- fuzzy search
 	"https://github.com/stevearc/conform.nvim", -- code formatter
-	"https://github.com/nvim-treesitter/nvim-treesitter", -- syntax highlighting
+	"https://github.com/romus204/tree-sitter-manager.nvim", -- syntax highlighting
 	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
 	"https://github.com/folke/which-key.nvim", -- keymap hints
 	"https://github.com/monkoose/neocodeium", -- ai completion
@@ -74,16 +74,7 @@ require("fzf-lua").setup()
 require("neocodeium").setup()
 require("crates").setup()
 require("which-key").setup({ preset = "helix" })
-
--- Syntax highlighting --
-require("nvim-treesitter").install({ "lua", "rust" })
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "lua", "rust" },
-	callback = function()
-		vim.treesitter.start()
-	end,
-})
+require("tree-sitter-manager").setup({ auto_install = true })
 
 -- LSP --
 vim.lsp.enable({ "lua_ls", "rust_analyzer" })
