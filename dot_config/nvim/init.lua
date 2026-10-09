@@ -1,8 +1,6 @@
 -- Options --
 vim.g.mapleader = " " -- Set leader key to space
 vim.g.maplocalleader = " " -- Set leader key to space
-vim.g.loaded_netrw = 1 -- Disable netrw
-vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 vim.o.number = true -- Show current line number
 vim.o.relativenumber = true -- Show relative line numbers
 vim.o.expandtab = true -- Use spaces instead of tabs
