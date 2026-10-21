@@ -1,3 +1,6 @@
+[settings]
+minimum_release_age = "0s"
+
 [tools]
 neovim = "latest"
 bat = "latest"
@@ -10,4 +13,6 @@ starship = "latest"
 atuin = "latest"
 fzf = "latest"
 tree-sitter = "latest"
+just = "latest"
+"conda:zstd" = "latest"
 
