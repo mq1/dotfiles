@@ -1,3 +1,8 @@
+# set up homebrew env on linux
+if [[ $OSTYPE == linux* ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
+fi
+
 # set up antidote (zsh plugin manager)
 [[ -d "$HOME/.antidote" ]] || git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.antidote"
 source "$HOME/.antidote/antidote.zsh"
