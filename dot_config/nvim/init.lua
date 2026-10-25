@@ -47,16 +47,18 @@ vim.pack.add({
 	"https://github.com/stevearc/oil.nvim", -- file explorer
 	"https://github.com/ibhagwan/fzf-lua", -- fuzzy search
 	"https://github.com/stevearc/conform.nvim", -- code formatter
-	"https://github.com/nvim-treesitter/nvim-treesitter", -- syntax highlighting
+	"https://github.com/romus204/tree-sitter-manager.nvim", -- syntax highlighting
 	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
 	"https://github.com/folke/which-key.nvim", -- keymap hints
 	"https://github.com/monkoose/neocodeium", -- ai completion
 	"https://github.com/Saecki/crates.nvim", -- rust crates utility
 	"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack gui
+	"https://github.com/mason-org/mason.nvim", -- package manager
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- code completion
 }, { confirm = false })
 
 vim.g.gruvbox_material_better_performance = 1
+vim.g.gruvbox_material_float_style = "blend"
 vim.cmd.colorscheme("gruvbox-material")
 
 require("mini.icons").setup()
@@ -71,17 +73,9 @@ require("oil").setup()
 require("fzf-lua").setup()
 require("neocodeium").setup()
 require("crates").setup()
+require("mason").setup()
 require("which-key").setup({ preset = "helix" })
-
--- Syntax highlighting --
-local langs = { "rust", "toml", "yaml", "xml", "json" }
-require("nvim-treesitter").install(langs)
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = langs,
-	callback = function()
-		vim.treesitter.start()
-	end,
-})
+require("tree-sitter-manager").setup({ auto_install = true })
 
 -- LSP --
 vim.lsp.enable({ "lua_ls", "rust_analyzer" })
