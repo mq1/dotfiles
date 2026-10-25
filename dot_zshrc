@@ -1,6 +1,3 @@
-# set up mise (package manager)
-eval "$(~/.local/bin/mise activate zsh)"
-
 # set up antidote (zsh plugin manager)
 [[ -d "$HOME/.antidote" ]] || git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.antidote"
 source "$HOME/.antidote/antidote.zsh"
@@ -15,4 +12,6 @@ alias v="nvim"
 alias tzst="tar -c -v --zstd --options zstd:compression-level=19,zstd:threads=0 -f"
 
 export EDITOR="nvim"
+
+eval "$(zoxide init zsh)"
 
