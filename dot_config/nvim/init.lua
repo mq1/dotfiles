@@ -52,8 +52,7 @@ vim.pack.add({
 	"https://github.com/folke/which-key.nvim", -- keymap hints
 	"https://github.com/monkoose/neocodeium", -- ai completion
 	"https://github.com/Saecki/crates.nvim", -- rust crates utility
-	"https://codeberg.org/cryptomilk/nvim-pack-ui", -- vim.pack gui
-	"https://github.com/mason-org/mason.nvim", -- package manager
+	"https://github.com/mason-org/mason.nvim", -- package manager for language tools
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- code completion
 }, { confirm = false })
 
@@ -89,6 +88,7 @@ require("conform").setup({
 		lua = { "stylua" },
 		rust = { "rustfmt" },
 		toml = { "taplo" },
+		sh = { "shfmt" },
 	},
 	format_on_save = {
 		timeout_ms = 500,
