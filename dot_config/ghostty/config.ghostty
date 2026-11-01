@@ -1,4 +1,5 @@
 theme = Gruvbox Material Dark
+macos-option-as-alt = left
 
 # window
 maximize = true
