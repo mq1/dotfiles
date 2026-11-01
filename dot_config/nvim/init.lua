@@ -36,7 +36,7 @@ vim.keymap.set("n", "<Leader>d", "<Cmd>FzfLua diagnostics_workspace<CR>", { desc
 
 vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Explore files" })
 
-vim.keymap.set("i", "ƒ", function()
+vim.keymap.set("i", "<A-f>", function()
 	require("neocodeium").accept()
 end, { desc = "Neocodeium accept" })
 
@@ -53,6 +53,7 @@ vim.pack.add({
 	"https://github.com/folke/which-key.nvim", -- keymap hints
 	"https://github.com/monkoose/neocodeium", -- ai completion
 	"https://github.com/Saecki/crates.nvim", -- rust crates utility
+	"https://github.com/MeanderingProgrammer/render-markdown.nvim", -- in-buffer markdown rendering
 	"https://github.com/mason-org/mason.nvim", -- package manager for language tools
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- code completion
 }, { confirm = false })
@@ -73,6 +74,7 @@ require("fzf-lua").setup()
 require("neocodeium").setup()
 require("crates").setup()
 require("mason").setup()
+require("render-markdown").setup()
 require("fidget").setup({ notification = { override_vim_notify = true } })
 require("which-key").setup({ preset = "helix" })
 require("tree-sitter-manager").setup({ auto_install = true })
