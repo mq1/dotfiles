@@ -18,5 +18,5 @@ alias tzst="tar -c -v --zstd --options zstd:compression-level=19,zstd:threads=0 
 
 export EDITOR="nvim"
 
-eval "$(zoxide init zsh)"
+source <(fzf --zsh)
 

@@ -1,5 +1,4 @@
 # shell
-brew "atuin"
 brew "starship"
 
 # tools

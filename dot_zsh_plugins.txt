@@ -11,5 +11,5 @@ zsh-users/zsh-autosuggestions
 zdharma-continuum/fast-syntax-highlighting kind:defer
 
 # history
-atuinsh/atuin
+jimhester/per-directory-history
 
