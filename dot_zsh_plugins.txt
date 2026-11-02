@@ -1,5 +1,6 @@
 # prompt
-mattmc3/starship-ftl post:"ftl-prompt starship"
+romkatv/powerlevel10k
+romkatv/powerlevel10k path:config/p10k-lean.zsh
 
 # completions
 mattmc3/ez-compinit

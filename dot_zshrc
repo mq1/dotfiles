@@ -1,3 +1,8 @@
+# enable powerlevel10k instant prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # set up homebrew env on linux
 if [[ $OSTYPE == linux* ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
@@ -19,4 +24,3 @@ alias tzst="tar -c -v --zstd --options zstd:compression-level=19,zstd:threads=0 
 export EDITOR="nvim"
 
 source <(fzf --zsh)
-

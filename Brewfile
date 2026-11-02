@@ -1,7 +1,3 @@
-# shell
-brew "starship"
-
-# tools
 brew "chezmoi"
 brew "topgrade"
 brew "lazygit"
