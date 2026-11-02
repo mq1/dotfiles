@@ -59,7 +59,6 @@ vim.pack.add({
 }, { confirm = false })
 
 vim.g.gruvbox_material_better_performance = 1
-vim.g.gruvbox_material_float_style = "blend"
 vim.cmd.colorscheme("gruvbox-material")
 
 require("mini.icons").setup()
