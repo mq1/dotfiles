@@ -3,7 +3,6 @@ romkatv/powerlevel10k
 romkatv/powerlevel10k path:config/p10k-lean-8colors.zsh
 
 # completions
-mattmc3/ez-compinit
 zsh-users/zsh-completions kind:fpath path:src
 aloxaf/fzf-tab kind:defer
 
