@@ -1,6 +1,6 @@
 # prompt
 romkatv/powerlevel10k
-romkatv/powerlevel10k path:config/p10k-lean.zsh
+romkatv/powerlevel10k path:config/p10k-lean-8colors.zsh
 
 # completions
 mattmc3/ez-compinit
