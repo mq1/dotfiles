@@ -36,7 +36,7 @@ vim.keymap.set("n", "<Leader>d", "<Cmd>FzfLua diagnostics_workspace<CR>", { desc
 
 vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Explore files" })
 
--- Alt+f on an ISO keyboard
+-- Option+f on an ISO keyboard
 vim.keymap.set("i", "ƒ", function()
 	require("neocodeium").accept()
 end, { desc = "Neocodeium accept" })
