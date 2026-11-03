@@ -56,7 +56,7 @@ vim.pack.add({
 	"https://github.com/stevearc/oil.nvim", -- file explorer
 	"https://github.com/ibhagwan/fzf-lua", -- fuzzy search
 	"https://github.com/stevearc/conform.nvim", -- code formatter
-	"https://github.com/arborist-ts/arborist.nvim", -- intentation + syntax highlighting
+	"https://github.com/arborist-ts/arborist.nvim", -- tree-sitter manager
 	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
 	"https://github.com/folke/which-key.nvim", -- keymap hints
 	"https://github.com/monkoose/neocodeium", -- ai completion
