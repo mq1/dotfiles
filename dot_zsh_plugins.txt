@@ -9,7 +9,3 @@ aloxaf/fzf-tab kind:defer
 # fish-like
 zsh-users/zsh-autosuggestions kind:defer
 zdharma-continuum/fast-syntax-highlighting kind:defer
-
-# history
-jimhester/per-directory-history
-
