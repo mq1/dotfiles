@@ -56,7 +56,7 @@ vim.pack.add({
 	"https://github.com/stevearc/oil.nvim", -- file explorer
 	"https://github.com/ibhagwan/fzf-lua", -- fuzzy search
 	"https://github.com/stevearc/conform.nvim", -- code formatter
-	"https://github.com/nvim-treesitter/nvim-treesitter", -- intentation + syntax highlighting
+	"https://github.com/arborist-ts/arborist.nvim", -- intentation + syntax highlighting
 	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
 	"https://github.com/folke/which-key.nvim", -- keymap hints
 	"https://github.com/monkoose/neocodeium", -- ai completion
@@ -84,16 +84,7 @@ require("crates").setup()
 require("render-markdown").setup()
 require("fidget").setup({ notification = { override_vim_notify = true } })
 require("which-key").setup({ preset = "helix" })
-
--- Treesitter (intentation and syntax highlighting) --
-local langs = { "rust", "toml", "xml", "just", "html", "yaml", "dockerfile", "json" }
-require("nvim-treesitter").install(langs):wait(300000) -- max. 5 minutes
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = langs,
-	callback = function()
-		vim.treesitter.start()
-	end,
-})
+require("arborist").setup({ install_popular = false })
 
 -- LSP --
 vim.lsp.enable({ "lua_ls", "rust_analyzer" })
