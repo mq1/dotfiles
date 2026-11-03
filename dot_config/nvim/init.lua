@@ -78,7 +78,7 @@ require("which-key").setup({ preset = "helix" })
 
 -- Treesitter (intentation and syntax highlighting) --
 local langs = { "rust", "toml", "xml", "just", "html", "yaml", "dockerfile", "json" }
-require("nvim-treesitter").install(langs):wait(300000)  -- max. 5 minutes
+require("nvim-treesitter").install(langs):wait(300000) -- max. 5 minutes
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = langs,
 	callback = function()
