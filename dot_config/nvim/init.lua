@@ -43,6 +43,10 @@ vim.keymap.set("n", "<Leader>d", "<Cmd>FzfLua diagnostics_workspace<CR>", { desc
 
 vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Explore files" })
 
+-- Opt-f and Opt-g on ISO keyboards
+vim.keymap.set("i", "ƒ", vim.lsp.inline_completion.get, { desc = "LSP: accept inline completion" })
+vim.keymap.set("i", "∞", vim.lsp.inline_completion.select, { desc = "LSP: switch inline completion" })
+
 -- Plugins --
 vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
@@ -82,6 +86,7 @@ require("arborist").setup({ install_popular = false })
 -- LSP --
 vim.lsp.enable({ "copilot", "lua_ls", "rust_analyzer" })
 vim.lsp.inlay_hint.enable()
+vim.lsp.inline_completion.enable()
 vim.diagnostic.config({ virtual_text = true })
 
 -- Code formatters --
@@ -96,29 +101,4 @@ require("conform").setup({
 		timeout_ms = 500,
 		lsp_format = "fallback",
 	},
-})
-
--- Copilot --
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(args)
-		local bufnr = args.buf
-		local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-
-		if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion, bufnr) then
-			vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
-
-			vim.keymap.set(
-				"i",
-				"<C-F>",
-				vim.lsp.inline_completion.get,
-				{ desc = "LSP: accept inline completion", buffer = bufnr }
-			)
-			vim.keymap.set(
-				"i",
-				"<C-G>",
-				vim.lsp.inline_completion.select,
-				{ desc = "LSP: switch inline completion", buffer = bufnr }
-			)
-		end
-	end,
 })
