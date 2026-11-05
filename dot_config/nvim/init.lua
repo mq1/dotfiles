@@ -43,11 +43,6 @@ vim.keymap.set("n", "<Leader>d", "<Cmd>FzfLua diagnostics_workspace<CR>", { desc
 
 vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Explore files" })
 
--- Option+f on an ISO keyboard
-vim.keymap.set("i", "ƒ", function()
-	require("neocodeium").accept()
-end, { desc = "Neocodeium accept" })
-
 -- Plugins --
 vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
@@ -59,7 +54,6 @@ vim.pack.add({
 	"https://github.com/arborist-ts/arborist.nvim", -- tree-sitter manager
 	"https://github.com/neovim/nvim-lspconfig", -- lsp configs
 	"https://github.com/folke/which-key.nvim", -- keymap hints
-	"https://github.com/monkoose/neocodeium", -- ai completion
 	"https://github.com/Saecki/crates.nvim", -- rust crates utility
 	"https://github.com/MeanderingProgrammer/render-markdown.nvim", -- in-buffer markdown rendering
 }, { confirm = false })
@@ -79,7 +73,6 @@ require("mini.cursorword").setup()
 require("mini.completion").setup()
 require("oil").setup()
 require("fzf-lua").setup()
-require("neocodeium").setup()
 require("crates").setup()
 require("render-markdown").setup()
 require("fidget").setup({ notification = { override_vim_notify = true } })
@@ -87,7 +80,7 @@ require("which-key").setup({ preset = "helix" })
 require("arborist").setup({ install_popular = false })
 
 -- LSP --
-vim.lsp.enable({ "lua_ls", "rust_analyzer" })
+vim.lsp.enable({ "copilot", "lua_ls", "rust_analyzer" })
 vim.lsp.inlay_hint.enable()
 vim.diagnostic.config({ virtual_text = true })
 
@@ -103,4 +96,29 @@ require("conform").setup({
 		timeout_ms = 500,
 		lsp_format = "fallback",
 	},
+})
+
+-- Copilot --
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local bufnr = args.buf
+		local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+
+		if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion, bufnr) then
+			vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
+
+			vim.keymap.set(
+				"i",
+				"<C-F>",
+				vim.lsp.inline_completion.get,
+				{ desc = "LSP: accept inline completion", buffer = bufnr }
+			)
+			vim.keymap.set(
+				"i",
+				"<C-G>",
+				vim.lsp.inline_completion.select,
+				{ desc = "LSP: switch inline completion", buffer = bufnr }
+			)
+		end
+	end,
 })
