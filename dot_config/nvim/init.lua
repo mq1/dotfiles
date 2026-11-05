@@ -62,7 +62,14 @@ vim.pack.add({
 	"https://github.com/MeanderingProgrammer/render-markdown.nvim", -- in-buffer markdown rendering
 }, { confirm = false })
 
+-- Color scheme --
 vim.g.gruvbox_material_better_performance = 1
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "gruvbox-material",
+	callback = function()
+		vim.api.nvim_set_hl(0, "ComplHint", { link = "Comment" }) -- set completion hint color to comment color
+	end,
+})
 vim.cmd.colorscheme("gruvbox-material")
 
 require("mini.icons").setup()
