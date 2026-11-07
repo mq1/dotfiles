@@ -43,10 +43,6 @@ vim.keymap.set("n", "<Leader>d", "<Cmd>FzfLua diagnostics_workspace<CR>", { desc
 
 vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Explore files" })
 
--- Opt-f and Opt-g on ISO keyboards
-vim.keymap.set("i", "ƒ", vim.lsp.inline_completion.get, { desc = "LSP: accept inline completion" })
-vim.keymap.set("i", "∞", vim.lsp.inline_completion.select, { desc = "LSP: switch inline completion" })
-
 -- Install and configure plugins --
 vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
@@ -87,7 +83,6 @@ require("arborist").setup({ install_popular = false })
 -- LSP --
 vim.lsp.enable({ "lua_ls", "rust_analyzer" })
 vim.lsp.inlay_hint.enable()
-vim.lsp.inline_completion.enable()
 vim.diagnostic.config({ virtual_text = true })
 
 -- Code formatters --
