@@ -47,7 +47,7 @@ vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Explore files" })
 vim.keymap.set("i", "ƒ", vim.lsp.inline_completion.get, { desc = "LSP: accept inline completion" })
 vim.keymap.set("i", "∞", vim.lsp.inline_completion.select, { desc = "LSP: switch inline completion" })
 
--- Install plugins --
+-- Install and configure plugins --
 vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
@@ -62,13 +62,10 @@ vim.pack.add({
 	"https://github.com/MeanderingProgrammer/render-markdown.nvim", -- in-buffer markdown rendering
 }, { confirm = false })
 
--- Color scheme configuration --
+-- Color scheme configuration
 vim.g.gruvbox_material_better_performance = 1
-vim.g.gruvbox_material_disable_italic_comment = 1
 vim.cmd.colorscheme("gruvbox-material")
-vim.api.nvim_set_hl(0, "ComplHint", { link = "Comment", italic = true }) -- set completion hint color to comment color
 
--- Plugins configuration --
 require("mini.icons").setup()
 MiniIcons.tweak_lsp_kind() -- for mini.completion
 
@@ -88,7 +85,7 @@ require("which-key").setup({ preset = "helix" })
 require("arborist").setup({ install_popular = false })
 
 -- LSP --
-vim.lsp.enable({ "copilot", "lua_ls", "rust_analyzer" })
+vim.lsp.enable({ "lua_ls", "rust_analyzer" })
 vim.lsp.inlay_hint.enable()
 vim.lsp.inline_completion.enable()
 vim.diagnostic.config({ virtual_text = true })
