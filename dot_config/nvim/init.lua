@@ -21,13 +21,6 @@ vim.o.spelllang = "en,it" -- Set up spell check (English and Italian)
 vim.o.spell = true -- Enable spell check
 vim.o.clipboard = "unnamedplus" -- Sync with system clipboard
 
--- Completion config
-vim.o.completeopt = "menuone,noselect,fuzzy,nosort"
-vim.o.complete = ".,w,b,kspell"
-vim.o.pumborder = "rounded"
-vim.o.pumheight = 10
-vim.o.pummaxwidth = 80
-
 -- Show cmdline when recording
 vim.cmd("autocmd RecordingEnter * set cmdheight=1")
 vim.cmd("autocmd RecordingLeave * set cmdheight=0")
@@ -55,6 +48,7 @@ vim.pack.add({
 	"https://github.com/folke/which-key.nvim", -- keymap hints
 	"https://github.com/Saecki/crates.nvim", -- rust crates utility
 	"https://github.com/MeanderingProgrammer/render-markdown.nvim", -- in-buffer markdown rendering
+	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- code completion
 }, { confirm = false })
 
 -- Color scheme configuration
@@ -71,7 +65,6 @@ require("mini.statusline").setup()
 require("mini.pairs").setup()
 require("mini.indentscope").setup()
 require("mini.cursorword").setup()
-require("mini.completion").setup()
 require("oil").setup()
 require("fzf-lua").setup()
 require("crates").setup()
@@ -83,6 +76,7 @@ require("arborist").setup({ install_popular = false })
 vim.lsp.enable({ "lua_ls", "rust_analyzer" })
 vim.lsp.inlay_hint.enable()
 vim.diagnostic.config({ virtual_text = true })
+require("blink.cmp").setup()
 
 -- Code formatters --
 require("conform").setup({
