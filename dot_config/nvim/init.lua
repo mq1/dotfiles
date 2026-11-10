@@ -56,8 +56,6 @@ vim.g.gruvbox_material_better_performance = 1
 vim.cmd.colorscheme("gruvbox-material")
 
 require("mini.icons").setup()
-MiniIcons.tweak_lsp_kind() -- for mini.completion
-
 require("mini.notify").setup()
 require("mini.git").setup()
 require("mini.diff").setup()
