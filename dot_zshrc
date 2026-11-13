@@ -8,16 +8,16 @@ if [[ "$OSTYPE" == linux* ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 fi
 
+# case insensitive tab completion
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
 # set up antidote (zsh plugin manager)
 if [[ ! -d "$HOME/.antidote" ]]; then
     git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.antidote"
 fi
 source "$HOME/.antidote/antidote.zsh"
 antidote load
-
-# case insensitive tab completion
-autoload -Uz compinit && compinit
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # history
 HISTFILE="$HOME/.zsh_history"
