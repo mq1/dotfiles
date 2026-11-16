@@ -40,6 +40,8 @@ vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
 	"https://github.com/stevearc/oil.nvim", -- file explorer
+	"https://github.com/lewis6991/gitsigns.nvim", -- git integration
+	"https://github.com/lewis6991/satellite.nvim", -- scrollbar
 	"https://github.com/ibhagwan/fzf-lua", -- fuzzy search
 	"https://github.com/stevearc/conform.nvim", -- code formatter
 	"https://github.com/arborist-ts/arborist.nvim", -- tree-sitter manager
@@ -56,8 +58,6 @@ vim.cmd.colorscheme("gruvbox-material")
 
 require("mini.icons").setup()
 require("mini.notify").setup()
-require("mini.git").setup()
-require("mini.diff").setup()
 require("mini.statusline").setup()
 require("mini.pairs").setup()
 require("mini.indentscope").setup()
