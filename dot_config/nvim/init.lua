@@ -39,6 +39,7 @@ vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Explore files" })
 vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
+	"https://github.com/j-hui/fidget.nvim", -- notifications
 	"https://github.com/stevearc/oil.nvim", -- file explorer
 	"https://github.com/lewis6991/gitsigns.nvim", -- git integration
 	"https://github.com/lewis6991/satellite.nvim", -- scrollbar
@@ -57,7 +58,6 @@ vim.g.gruvbox_material_better_performance = 1
 vim.cmd.colorscheme("gruvbox-material")
 
 require("mini.icons").setup()
-require("mini.notify").setup()
 require("mini.statusline").setup()
 require("mini.pairs").setup()
 require("mini.indentscope").setup()
@@ -68,6 +68,7 @@ require("crates").setup()
 require("render-markdown").setup()
 require("which-key").setup({ preset = "helix" })
 require("arborist").setup({ install_popular = false })
+require("fidget").setup({ notification = { override_vim_notify = true } })
 
 -- LSP --
 vim.lsp.enable({ "lua_ls", "rust_analyzer" })
