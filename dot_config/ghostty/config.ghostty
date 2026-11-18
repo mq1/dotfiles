@@ -1,6 +1,7 @@
 theme = Gruvbox Material Dark
 
 # window
+macos-titlebar-style = hidden
 maximize = true
 window-padding-balance = true
 window-padding-color = extend
@@ -9,7 +10,7 @@ window-padding-color = extend
 font-family = Lilex
 font-size = 13
 font-style = Medium
-adjust-cell-height = 10%
+adjust-cell-height = 20%
 
 # cursor
 cursor-style-blink = false
