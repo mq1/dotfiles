@@ -1,8 +1,8 @@
 theme = Gruvbox Material Dark
 
 # window
-macos-titlebar-style = hidden
-maximize = true
+fullscreen = non-native-visible-menu
+macos-non-native-fullscreen = visible-menu
 window-padding-balance = true
 window-padding-color = extend
 
