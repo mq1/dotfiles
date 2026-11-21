@@ -19,6 +19,7 @@ vim.o.winborder = "rounded" -- Rounded corners for floating windows
 vim.o.spelllang = "en,it" -- Set up spell check (English and Italian)
 vim.o.spell = true -- Enable spell check
 vim.o.clipboard = "unnamedplus" -- Sync with system clipboard
+vim.o.title = true -- Set terminal emulator title
 
 -- Show cmdline when recording
 vim.cmd("autocmd RecordingEnter * set cmdheight=1")
