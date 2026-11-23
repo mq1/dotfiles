@@ -10,28 +10,12 @@ fi
 # activate mise (package manager)
 eval "$($HOME/.local/bin/mise activate zsh)"
 
-# set up antidote (zsh plugin manager)
-zstyle ':antidote:dynamic' zcompile 'yes'
-zstyle ':antidote:bundle:*' zcompile 'yes'
-source "$HOME/.antidote/antidote.zsh"
-source <(antidote init)
-
-# prompt
-antidote bundle romkatv/powerlevel10k
-antidote bundle romkatv/powerlevel10k path:config/p10k-lean-8colors.zsh
-
-# completions
+# set up antidote (zsh plugin manager) and plugins
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
-antidote bundle mattmc3/ez-compinit
-antidote bundle zsh-users/zsh-completions kind:fpath path:src
+source "$HOME/.antidote/antidote.zsh"
+antidote load
 
-# QOL
-antidote bundle zsh-users/zsh-autosuggestions
-antidote bundle zdharma-continuum/fast-syntax-highlighting kind:defer
-antidote bundle zdharma-continuum/history-search-multi-word
-
-# enhanced history search
-antidote bundle zsh-users/zsh-history-substring-search
+# for zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
