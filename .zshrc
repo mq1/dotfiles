@@ -11,8 +11,8 @@ fi
 eval "$($HOME/.local/bin/mise activate zsh)"
 
 # set up antidote (zsh plugin manager) and plugins
-zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 source "$HOME/.antidote/antidote.zsh"
+zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 antidote load
 
 # for zsh-history-substring-search
