@@ -1,0 +1,18 @@
+theme = Gruvbox Material Dark
+
+# window
+fullscreen = non-native-visible-menu
+macos-non-native-fullscreen = visible-menu
+window-padding-balance = true
+window-padding-color = extend
+
+# font
+font-family = Lilex
+font-size = 13
+font-style = Medium
+adjust-cell-height = 20%
+
+# cursor
+cursor-style-blink = false
+adjust-cursor-thickness = 2
+custom-shader = shaders/cursor_tail.glsl
