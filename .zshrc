@@ -1,16 +1,15 @@
-# bootstrap tools
-[[ -x "$HOME/.local/bin/mise" ]] || curl -fsSL https://mise.run | sh
-[[ -d "$HOME/.antidote" ]] || git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.antidote"
-
 # enable powerlevel10k instant prompt
+POWERLEVEL9K_INSTANT_PROMPT=quiet
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# activate mise (package manager)
+# install and activate mise (package manager)
+[[ -x "$HOME/.local/bin/mise" ]] || curl -fsSL https://mise.run | sh
 eval "$($HOME/.local/bin/mise activate zsh)"
 
-# set up antidote (zsh plugin manager) and plugins
+# install and set up antidote (zsh plugin manager)
+[[ -d "$HOME/.antidote" ]] || git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.antidote"
 source "$HOME/.antidote/antidote.zsh"
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 antidote load
