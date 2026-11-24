@@ -15,6 +15,8 @@ vim.o.ignorecase = true -- Case-insensitive search
 vim.o.smartcase = true -- Case-sensitive search if any caps
 vim.o.swapfile = false -- Disable swap files
 vim.o.scrolloff = 8 -- Lines of context
+vim.o.scrolloff = 8 -- Lines of context
+vim.o.title = true -- Set terminal emulator title
 
 -- Keybindings
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights on search" })
