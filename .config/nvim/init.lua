@@ -1,3 +1,6 @@
+-- Speed up startup
+vim.loader.enable()
+
 -- Options
 vim.g.mapleader = " " -- Set leader key to space
 vim.g.maplocalleader = " " -- Set local leader key to space
