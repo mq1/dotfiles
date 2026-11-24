@@ -1,6 +1,6 @@
--- Options --
+-- Options
 vim.g.mapleader = " " -- Set leader key to space
-vim.g.maplocalleader = " " -- Set leader key to space
+vim.g.maplocalleader = " " -- Set local leader key to space
 vim.o.number = true -- Show current line number
 vim.o.relativenumber = true -- Show relative line numbers
 vim.o.expandtab = true -- Use spaces instead of tabs
@@ -16,29 +16,25 @@ vim.o.smartcase = true -- Case-sensitive search if any caps
 vim.o.swapfile = false -- Disable swap files
 vim.o.scrolloff = 8 -- Lines of context
 
--- Keybindings --
+-- Keybindings
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights on search" })
 vim.keymap.set("n", "<Leader><Leader>", "<C-^>", { desc = "Alternate buffer" })
-vim.keymap.set("n", "<Leader>f", "<Cmd>Pick files<CR>", { desc = "Find file" })
-vim.keymap.set("n", "<Leader>b", "<Cmd>Pick buffers<CR>", { desc = "Find buffer" })
-vim.keymap.set("n", "<Leader>g", "<Cmd>Pick grep_live<CR>", { desc = "Find text" })
-vim.keymap.set("n", "<Leader>d", "<Cmd>Pick diagnostic<CR>", { desc = "Diagnostics" })
-vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Explore files" })
 
--- Install and configure plugins --
+-- Install and configure plugins
 vim.pack.add({
 	"https://github.com/sainnhe/gruvbox-material", -- color scheme
 	"https://github.com/nvim-mini/mini.nvim", -- misc
 	"https://github.com/stevearc/oil.nvim", -- file explorer
 }, { confirm = false })
 
--- Color scheme
 vim.g.gruvbox_material_better_performance = 1
 vim.cmd.colorscheme("gruvbox-material")
 
 require("mini.icons").setup()
 require("mini.statusline").setup()
+
 require("oil").setup()
+vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Explore files" })
 
 -- Slow stuff
 vim.schedule(function()
@@ -68,18 +64,23 @@ vim.schedule(function()
 	require("mini.pairs").setup()
 	require("mini.indentscope").setup()
 	require("mini.cursorword").setup()
-	require("mini.pick").setup()
-	require("mini.extra").setup()
 	require("crates").setup()
 	require("render-markdown").setup()
 	require("which-key").setup({ preset = "helix" })
 	require("arborist").setup({ install_popular = false })
 
+	require("mini.pick").setup()
+	require("mini.extra").setup()
+	vim.keymap.set("n", "<Leader>f", "<Cmd>Pick files<CR>", { desc = "Find file" })
+	vim.keymap.set("n", "<Leader>b", "<Cmd>Pick buffers<CR>", { desc = "Find buffer" })
+	vim.keymap.set("n", "<Leader>g", "<Cmd>Pick grep_live<CR>", { desc = "Find text" })
+	vim.keymap.set("n", "<Leader>d", "<Cmd>Pick diagnostic<CR>", { desc = "Diagnostics" })
+
 	-- LSP
 	vim.lsp.enable({ "lua_ls", "rust_analyzer" })
 	vim.lsp.inlay_hint.enable()
 	vim.diagnostic.config({ virtual_text = true })
-	require("blink.cmp").setup()
+	require("blink.cmp").setup({ signature = { enabled = true } })
 
 	-- Code formatters
 	require("conform").setup({
