@@ -30,9 +30,17 @@ vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights o
 vim.keymap.set("n", "<Leader><Leader>", "<C-^>", { desc = "Alternate buffer" })
 
 -- Show cmdline when recording
-vim.api.nvim_create_autocmd({ "RecordingEnter", "RecordingLeave" }, {
-	callback = function(ev)
-		vim.o.cmdheight = ev.event == "RecordingEnter" and 1 or 0
+local group = vim.api.nvim_create_augroup("RecordingCmdheight", { clear = true })
+vim.api.nvim_create_autocmd("RecordingEnter", {
+	group = group,
+	callback = function()
+		vim.o.cmdheight = 1
+	end,
+})
+vim.api.nvim_create_autocmd("RecordingLeave", {
+	group = group,
+	callback = function()
+		vim.o.cmdheight = 0
 	end,
 })
 
