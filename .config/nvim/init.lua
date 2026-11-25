@@ -47,4 +47,6 @@ vim.api.nvim_create_autocmd("RecordingLeave", {
 })
 
 -- Install plugins
-vim.pack.add({ "https://github.com/mezdelex/unpack.nvim" }, { confirm = false })
+vim.pack.add({
+	{ src = "https://github.com/mezdelex/unpack.nvim", version = "7ce89732cd208050370f31d2b44a17a750fb4a49" },
+}, { confirm = false })
