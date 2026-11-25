@@ -50,12 +50,9 @@ vim.api.nvim_create_autocmd("RecordingLeave", {
 local function load_spec(spec)
 	vim.iter(spec.dependencies or {}):each(load_spec)
 	vim.pack.add({ spec }, { confirm = false })
-	if spec.config then
-		spec.config()
-	end
+	local _ = spec.config and spec.config()
 end
 for _, file in ipairs(vim.fn.glob(vim.fn.stdpath("config") .. "/lua/plugins/*.lua", false, true)) do
-	local spec = require("plugins." .. vim.fn.fnamemodify(file, ":t:r"))
-	local load_fn = spec.defer and vim.schedule_wrap(load_spec) or load_spec
-	load_fn(spec)
+	local spec = require("plugins." .. vim.fn.fnamemodify(file, ":t:r"));
+	(spec.defer and vim.schedule_wrap(load_spec) or load_spec)(spec)
 end
