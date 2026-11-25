@@ -33,3 +33,6 @@ alias ls="ls --color=auto"
 alias v="nvim"
 alias dotfiles="git --git-dir='$HOME/.dotfiles/' --work-tree='$HOME'"
 alias ctx="tail -v -n +1"
+
+# fzf integration
+zsh-defer -c 'source <(fzf --zsh)'
