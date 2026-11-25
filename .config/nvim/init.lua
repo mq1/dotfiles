@@ -46,7 +46,16 @@ vim.api.nvim_create_autocmd("RecordingLeave", {
 	end,
 })
 
--- Install plugins
-vim.pack.add({
-	{ src = "https://github.com/mezdelex/unpack.nvim", version = "7ce89732cd208050370f31d2b44a17a750fb4a49" },
-}, { confirm = false })
+-- Install plugins (inspired by mezdelex/unpack.nvim)
+local function load_spec(spec)
+	vim.iter(spec.dependencies or {}):each(load_spec)
+	vim.pack.add({ spec }, { confirm = false })
+	if spec.config then
+		spec.config()
+	end
+end
+for _, file in ipairs(vim.fn.glob(vim.fn.stdpath("config") .. "/lua/plugins/*.lua", false, true)) do
+	local spec = require("plugins." .. vim.fn.fnamemodify(file, ":t:r"))
+	local load_fn = spec.defer and vim.schedule_wrap(load_spec) or load_spec
+	load_fn(spec)
+end
