@@ -3,7 +3,7 @@ vim.schedule(function()
 		"https://github.com/neovim/nvim-lspconfig",
 	}, { confirm = false })
 
-	vim.lsp.enable({ "lua_ls", "rust_glancer" })
+	vim.lsp.enable({ "lua_ls", "rust_analyzer" })
 	vim.lsp.inlay_hint.enable()
 
 	vim.diagnostic.config({

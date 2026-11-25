@@ -6,6 +6,7 @@ require("mini.icons").setup()
 require("mini.statusline").setup()
 
 vim.schedule(function()
+	require("mini.notify").setup()
 	require("mini.pairs").setup()
 	require("mini.indentscope").setup()
 	require("mini.cursorword").setup()
