@@ -5,6 +5,7 @@ local languages = {
 	"yaml",
 	"bash",
 	"html",
+	"zsh",
 }
 
 local group = vim.api.nvim_create_augroup("MyTreesitter", { clear = true })
