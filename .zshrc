@@ -1,6 +1,7 @@
-# bootstrap tools
-[[ -x "$HOME/.local/bin/mise" ]] || curl -fsSL https://mise.run | sh
-[[ -d "$HOME/.antidote" ]] || git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.antidote"
+# bootstrap antidote
+if [[ ! -d "$HOME/.antidote" ]]; then
+    git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.antidote"
+fi
 
 # enable powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -8,7 +9,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # activate mise (package manager)
-eval "$($HOME/.local/bin/mise activate zsh)"
+if [[ -x "$HOME/.local/bin/mise" ]]; then
+  eval "$($HOME/.local/bin/mise activate zsh)"
+fi
 
 # set up antidote (zsh plugin manager) and plugins
 source "$HOME/.antidote/antidote.zsh"
@@ -33,6 +36,3 @@ alias ls="ls --color=auto"
 alias v="nvim"
 alias dotfiles="git --git-dir='$HOME/.dotfiles/' --work-tree='$HOME'"
 alias ctx="tail -v -n +1"
-
-# fzf integration
-zsh-defer -c 'source <(fzf --zsh)'
