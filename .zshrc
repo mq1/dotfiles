@@ -1,19 +1,12 @@
-# bootstrap antidote
-if [[ ! -d "$HOME/.antidote" ]]; then
-    git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.antidote"
-fi
-
 # enable powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# activate mise (package manager)
-if [[ -x "$HOME/.local/bin/mise" ]]; then
-  eval "$($HOME/.local/bin/mise activate zsh)"
-fi
-
 # set up antidote (zsh plugin manager) and plugins
+if [[ ! -d "$HOME/.antidote" ]]; then
+    git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.antidote"
+fi
 source "$HOME/.antidote/antidote.zsh"
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 antidote load
